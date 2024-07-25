@@ -20,19 +20,24 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 ev3 = EV3Brick()
 
 motorDireito = Motor(
-    Port.A, positive_direction=Direction.COUNTERCLOCKWISE, gears=None) # <-- Motor da roda direita
+    Port.B, positive_direction=Direction.COUNTERCLOCKWISE, gears=None) # <-- Motor da roda direita
 
 motorEsquerdo = Motor(
-    Port.D, positive_direction=Direction.COUNTERCLOCKWISE, gears=None) # <-- Motor da roda esquerda
+    Port.A, positive_direction=Direction.COUNTERCLOCKWISE, gears=None) # <-- Motor da roda esquerda
+
+
+garra = Motor(Port.C)
+
+mecanismoDeposito = Motor(Port.D)
 
 
 meuRobo = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=160) # <-- Iniciando o DriveBase5
 
 sensorCorEsquerda = ColorSensor(Port.S1)
-sensorCorDireita = ColorSensor(Port.S4)
+sensorCorDireita = ColorSensor(Port.S2)
 
-sensorUltrassonico = UltrasonicSensor(Port.S3)
-sensorGyro = GyroSensor(Port.S2)
+ultrassonicoLado = UltrasonicSensor(Port.S3)
+ultrassonicoFrente = UltrasonicSensor(Port.S4)
 
 
 

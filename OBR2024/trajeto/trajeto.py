@@ -15,7 +15,7 @@ from obstaculo import obstaculo
 #Função do Trajeto Principal
 def trajeto():
     while entradaDaSala() == False and linhaVermelha() == False:
-        if robo.sensorUltrassonico.distance() < 45:
+        if robo.ultrassonicoFrente.distance() < 45:
             obstaculo()
         else:
             segueLinha()
