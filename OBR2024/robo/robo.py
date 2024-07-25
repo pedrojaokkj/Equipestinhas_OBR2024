@@ -31,7 +31,7 @@ garra = Motor(Port.C)
 mecanismoDeposito = Motor(Port.D)
 
 
-meuRobo = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=160) # <-- Iniciando o DriveBase5
+meuRobo = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
 
 sensorCorEsquerda = ColorSensor(Port.S1)
 sensorCorDireita = ColorSensor(Port.S2)
