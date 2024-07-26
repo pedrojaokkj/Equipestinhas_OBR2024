@@ -2,8 +2,8 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-import OBR2024.robo.robo as robo
-import OBR2024.trajeto.trajeto as trajeto
+from ..robo import robo
+from ..trajeto import trajeto
 
 # Execução do Resgate
 def resgate():

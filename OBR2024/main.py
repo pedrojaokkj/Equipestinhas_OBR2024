@@ -2,12 +2,13 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-import OBR2024.trajeto.trajeto as trajeto
+import modulo.trajeto.trajeto as trajeto
 
-import robo.robo as robo
+import modulo.robo.robo as robo
 
 
 # Chamada da Função Principal
-trajeto.trajeto()
+if __name__ == "__main__":
+    trajeto.trajeto()
 
  

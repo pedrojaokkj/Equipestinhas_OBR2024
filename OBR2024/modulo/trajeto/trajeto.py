@@ -3,11 +3,11 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from pybricks.parameters import Port, Stop, Direction, Button, Color
-import OBR2024.robo.robo as robo
-import OBR2024.resgate.salaDeResgate as salaDeResgate
+from ..robo import robo
+from ..resgate import salaDeResgate
 
-from segueLinha import segueLinha
-from obstaculo import obstaculo
+from .import segueLinha
+from .import obstaculo
 
 
 
@@ -16,9 +16,9 @@ from obstaculo import obstaculo
 def trajeto():
     while entradaDaSala() == False and linhaVermelha() == False:
         if robo.ultrassonicoFrente.distance() < 45:
-            obstaculo()
+            obstaculo.obstaculo()
         else:
-            segueLinha()
+            segueLinha.segueLinha()
 
     if linhaVermelha() == True:
         acabou()
