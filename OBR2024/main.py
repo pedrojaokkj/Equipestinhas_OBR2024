@@ -2,13 +2,12 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-import modulo.trajeto.trajeto as trajeto
-
 import modulo.robo.robo as robo
+
+from modulo.trajeto.trajeto import trajeto
+from teste import teste
 
 
 # Chamada da Função Principal
 if __name__ == "__main__":
-    trajeto.trajeto()
-
- 
+    trajeto()

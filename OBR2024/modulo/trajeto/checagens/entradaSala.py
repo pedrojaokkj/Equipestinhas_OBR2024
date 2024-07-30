@@ -2,10 +2,8 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ..robo import robo
+from ...robo import robo
 
-
-
-# Execução do Resgate
-def resgate():
-    print("Resgatando...")
+# Verifica se o robô está na entrada da sala
+def entradaDaSala():
+    return False

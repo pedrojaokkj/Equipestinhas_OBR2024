@@ -2,10 +2,8 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ..robo import robo
+import modulo.robo.robo as robo
 
 
-
-# Execução do Resgate
-def resgate():
-    print("Resgatando...")
+def teste():
+    robo.meuRobo.straight(100)

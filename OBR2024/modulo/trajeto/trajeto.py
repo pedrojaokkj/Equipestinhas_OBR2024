@@ -4,10 +4,13 @@
 #______________________________________________________________________________________________________________________________________
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from ..robo import robo
-from ..resgate import salaDeResgate
+from ..resgate.salaDeResgate import resgate
 
-from .import segueLinha
-from .import obstaculo
+from .checagens.entradaSala import entradaDaSala
+from .checagens.linhaVermelha import linhaVermelha
+
+from .segueLinha import segueLinha
+from .obstaculo import obstaculo
 
 
 
@@ -16,28 +19,16 @@ from .import obstaculo
 def trajeto():
     while entradaDaSala() == False and linhaVermelha() == False:
         if robo.ultrassonicoFrente.distance() < 45:
-            obstaculo.obstaculo()
+            obstaculo()
         else:
-            segueLinha.segueLinha()
+            segueLinha()
+            
 
     if linhaVermelha() == True:
-        acabou()
+        robo.bizzoru.stop()
     else:
-        salaDeResgate.resgate()
+        resgate()
+        trajeto()
 
 
-# Verifica se o robô está na entrada da sala
-def entradaDaSala():
-    return False
 
-
-# Verifica se o robô está na linha vermelha
-def linhaVermelha():
-    retorno = robo.sensorCorDireita.color() == Color.RED and robo.sensorCorEsquerda.color() == Color.RED
-    return retorno
-
-
-# Finaliza o Trajeto
-def acabou():
-    print('Acabou')
-    robo.ev3.light.off() 

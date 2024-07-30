@@ -4,7 +4,7 @@
 #______________________________________________________________________________________________________________________________________
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import (Motor, ColorSensor,
-                                 UltrasonicSensor, GyroSensor)
+                                 UltrasonicSensor)
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
@@ -31,7 +31,7 @@ garra = Motor(Port.C)
 mecanismoDeposito = Motor(Port.D)
 
 
-meuRobo = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
+bizzoru = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
 
 sensorCorEsquerda = ColorSensor(Port.S1)
 sensorCorDireita = ColorSensor(Port.S2)

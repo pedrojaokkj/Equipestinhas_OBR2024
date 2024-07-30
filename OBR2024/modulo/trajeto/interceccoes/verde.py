@@ -12,15 +12,15 @@ def verde(sensor:robo.ColorSensor):
         lado = -1
         outroSensor = robo.sensorCorDireita
 
-    robo.meuRobo.straight(60)
+    robo.bizzoru.straight(60)
 
     while outroSensor.color == robo.Color.WHITE:
-        robo.meuRobo.drive(20, 50 * lado)
-    robo.meuRobo.stop()
+        robo.bizzoru.drive(20, 50 * lado)
+    robo.bizzoru.stop()
 
     while sensor == robo.Color.WHITE:
-        robo.meuRobo.drive(20, 50* lado * -1)
-    robo.meuRobo.stop()
+        robo.bizzoru.drive(20, 50* lado * -1)
+    robo.bizzoru.stop()
 
     #implementar ajustes
     
