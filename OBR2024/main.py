@@ -2,8 +2,6 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-import modulo.robo.robo as robo
-
 from modulo.trajeto.trajeto import trajeto
 from teste import teste
 
@@ -11,3 +9,8 @@ from teste import teste
 # Chamada da Função Principal
 if __name__ == "__main__":
     trajeto()
+
+
+# Chamada da Função de Testes
+# if __name__ == "__main__":
+#     teste()

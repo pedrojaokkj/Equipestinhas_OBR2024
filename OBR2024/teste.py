@@ -6,4 +6,5 @@ import modulo.robo.robo as robo
 
 
 def teste():
-    robo.meuRobo.straight(100)
+    while True:
+        print(robo.sensorCorDireita.color() == robo.Color.RED)
