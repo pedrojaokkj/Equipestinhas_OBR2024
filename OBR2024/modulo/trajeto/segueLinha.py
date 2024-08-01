@@ -3,9 +3,9 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from ..robo import robo
-from .interceccoes.preto import preto
-from .interceccoes.verde import verde
-from .interceccoes.becoOuDoisPretos import becoOuDoisPretos
+from .perigos.interceccoes.preto import preto
+from .perigos.interceccoes.verde import verde
+from .perigos.interceccoes.becoOuDoisPretos import becoOuDoisPretos
 
 sensorD = robo.sensorCorDireita
 sensorE = robo.sensorCorEsquerda

@@ -2,7 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ...robo import robo
+from ....robo import robo
 
-def preto(sensor:robo.ColorSensor):
-    print("Função Preto")
+def doisPretos():
+    robo.bizzoru.straight(50)

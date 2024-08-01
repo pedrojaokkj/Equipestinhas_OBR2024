@@ -2,8 +2,8 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ...robo import robo
-from ..checagens.confirmaCor import confirmaCor
+from ....robo import robo
+from ...checagens.confirmaCor import confirmaCor
 from .doisPretos import doisPretos
 from .becoSemSaida import becoSemSaida
 from .verde import verde

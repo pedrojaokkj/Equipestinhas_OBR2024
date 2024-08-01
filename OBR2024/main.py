@@ -6,7 +6,7 @@ from modulo.trajeto.trajeto import trajeto
 from teste import teste
 from modulo.robo import robo
 
-from modulo.trajeto.interceccoes.verde import verde
+from modulo.trajeto.perigos.interceccoes.verde import verde
 
 # Chamada da Função Principal
 # if __name__ == "__main__":

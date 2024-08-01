@@ -10,7 +10,7 @@ from .checagens.entradaSala import entradaDaSala
 from .checagens.linhaVermelha import linhaVermelha
 
 from .segueLinha import segueLinha
-from .obstaculo import obstaculo
+from .perigos.obstaculo import obstaculo
 
 
 

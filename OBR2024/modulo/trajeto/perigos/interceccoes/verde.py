@@ -2,7 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ...robo import robo
+from ....robo import robo
 
 def verde(sensor:robo.ColorSensor):
     '''Vira o Robô de acordo com a marcação verde das intercecções.
