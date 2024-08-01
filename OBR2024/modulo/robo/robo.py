@@ -32,12 +32,16 @@ mecanismoDeposito = Motor(Port.D)
 
 
 bizzoru = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
+bizzoru.settings(straight_speed=200, turn_rate=150)
+
 
 sensorCorEsquerda = ColorSensor(Port.S1)
 sensorCorDireita = ColorSensor(Port.S2)
 
 ultrassonicoLado = UltrasonicSensor(Port.S3)
 ultrassonicoFrente = UltrasonicSensor(Port.S4)
+
+
 
 
 

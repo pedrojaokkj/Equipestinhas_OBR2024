@@ -24,9 +24,10 @@ def trajeto():
             else:
                 segueLinha()
 
-        if entradaDaSala == True:        
+        if entradaDaSala() == True:        
             resgate()
         elif linhaVermelha():
+            print("Linha Vermelha")
             break
     
     robo.bizzoru.stop()

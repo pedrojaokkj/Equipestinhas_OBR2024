@@ -7,9 +7,15 @@ from ...robo import robo
 from .itemRecorrente import item_mais_repetido
 
 
-
-
 def confirmaCor():
+    '''Faz o robô ir para frente e para trás checando a cor que mais se repete na area onde o robô se localiza.
+
+    Returns:
+        corMaisComumEsquerda (Color) : Cor mais recorrente no sensor da esquerda
+        corMaisComumDireita (Color) : Cor mais recorrente no sensor da direita
+    '''
+
+
     corEsquerda = []  #array que armazenará as leituras do sensor esquerdo
     corDireita = []   #array que armazenará as leituras do sensor direito
 
@@ -35,4 +41,4 @@ def confirmaCor():
     corMaisComumDireita = item_mais_repetido(corDireita)[0]    # Extrai apenas a cor
 
     # Retorna a cor mais comum para ambos os sensores
-    return [corMaisComumEsquerda, corMaisComumDireita]
+    return corMaisComumEsquerda, corMaisComumDireita

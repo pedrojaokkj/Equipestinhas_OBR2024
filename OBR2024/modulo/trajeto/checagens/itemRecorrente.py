@@ -3,6 +3,12 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 def item_mais_repetido(array):
+    '''Verifica se o Robô chegou na sala de resgate.
+        
+    Returns:
+        retorno (boolean): Retorna se o robô está na sala de resgate(True) ou não(False)
+    '''
+        
     contagem = {}
     for item in array:
         if item in contagem:
