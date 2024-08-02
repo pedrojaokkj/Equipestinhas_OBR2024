@@ -5,4 +5,4 @@
 from ....robo import robo
 
 def doisPretos():
-    robo.bizzoru.straight(50)
+    robo.bz.straight(50)

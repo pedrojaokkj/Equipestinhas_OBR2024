@@ -18,22 +18,22 @@ def verde(sensor:robo.ColorSensor):
         lado = -1
         outroSensor = robo.sensorCorDireita
 
-    robo.bizzoru.straight(95)
+    robo.bz.straight(95)
 
     while True:
-        robo.bizzoru.drive(0, 90 *lado)  
+        robo.bz.drive(0, 90 *lado)  
         if outroSensor.reflection <= 40:
-            robo.bizzoru.stop()
+            robo.bz.stop()
             break
 
 
     while True:
-        robo.bizzoru.drive(0, -90 * lado)  
+        robo.bz.drive(0, -90 * lado)  
         if sensor.reflection <= 40:
-            robo.bizzoru.stop()
+            robo.bz.stop()
             break    
 
-    robo.bizzoru.stop()
+    robo.bz.stop()
 
     #implementar ajustes
     

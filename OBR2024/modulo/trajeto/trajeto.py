@@ -30,7 +30,7 @@ def trajeto():
             print("Linha Vermelha")
             break
     
-    robo.bizzoru.stop()
+    robo.bz.stop()
 
 
 

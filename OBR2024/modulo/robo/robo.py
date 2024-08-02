@@ -31,8 +31,8 @@ garra = Motor(Port.C)
 mecanismoDeposito = Motor(Port.D)
 
 
-bizzoru = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
-bizzoru.settings(straight_speed=200, turn_rate=150)
+bz = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
+bz.settings(straight_speed=200, turn_rate=150)
 
 
 sensorCorEsquerda = ColorSensor(Port.S1)

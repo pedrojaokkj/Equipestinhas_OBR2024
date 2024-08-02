@@ -22,19 +22,19 @@ def confirmaCor():
 
     #vai pra frente armazenando as leituras
     for i in range(85):
-        robo.bizzoru.drive(25,0)
+        robo.bz.drive(25,0)
         corEsquerda.append(robo.sensorCorEsquerda.color())
         corDireita.append(robo.sensorCorDireita.color())
         robo.wait(1)
 
     #volta armazenando as leituras
     for i in range(100):
-        robo.bizzoru.drive(-25,0)
+        robo.bz.drive(-25,0)
         corEsquerda.append(robo.sensorCorEsquerda.color())
         corDireita.append(robo.sensorCorDireita.color())
         robo.wait(1)
 
-    robo.bizzoru.stop()
+    robo.bz.stop()
 
     # Encontra os itens mais comuns
     corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]  # Extrai apenas a cor

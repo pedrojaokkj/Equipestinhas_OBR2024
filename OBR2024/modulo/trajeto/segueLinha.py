@@ -21,7 +21,7 @@ def segueLinha():
 
 
         if sensorE.color() == Color.WHITE:    # e o sensor esquerdo ler branco
-            robo.bizzoru.drive(200,0)
+            robo.bz.drive(200,0)
 
         elif sensorE.color() == Color.BLACK:   # e o sensor esquerdo ler preto
             preto(sensorE)

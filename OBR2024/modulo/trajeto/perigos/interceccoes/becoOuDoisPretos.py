@@ -14,10 +14,10 @@ def becoOuDoisPretos():
     
     '''
 
-    bizz = robo.bizzoru
-    bizz.straight(-50)
+    bz = robo.bz
+    bz.straight(-50)
     #alinhar o robô
-    bizz.straight(50)
+    bz.straight(50)
 
     cores = confirmaCor()
 

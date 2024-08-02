@@ -5,22 +5,31 @@
 import modulo.robo.robo as robo
 
 
-def teste(sensor):
-    if sensor == robo.sensorCorDireita:
-        lado = 1
-        outroSensor = robo.sensorCorEsquerda
-    else:
-        lado = -1
-        outroSensor = robo.sensorCorDireita
+def teste():
+    print('Inicando resgate')
 
-    robo.bizzoru.straight(60)
 
-    robo.bizzoru.turn(20 * lado)
+    robo.garra.run(300)
+    print("Gotcha!")
+    robo.wait(2000)
+    robo.bz.stop()
 
-    while outroSensor.reflection() >= 50:
-        robo.bizzoru.drive(20, 50 * lado)
-    robo.bizzoru.stop()
+    robo.garra.run(300)
+    print("Depositada!")
+    robo.wait(2000)
+    robo.bz.stop()
 
-    while sensor.reflection() >= 50:
-        robo.bizzoru.drive(20, 50* lado * -1)
-    robo.bizzoru.stop()
+    robo.garra.run(300)
+    print("Abaixando")
+    robo.wait(2000)
+    robo.bz.stop()    
+
+    robo.mecanismoDeposito.run_angle(100, 90)
+    print("Black ball is broken free!")
+    robo.wait(2000)
+    robo.bz.stop()
+
+    robo.garra.run(300)
+    print("Subindo")
+    robo.wait(2000)
+    robo.bz.stop()
