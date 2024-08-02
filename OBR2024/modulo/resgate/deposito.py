@@ -2,22 +2,10 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-import modulo.robo.robo as robo
+from ..robo import robo
 
+def deposito():
 
-def teste():
-    print('Inicando resgate')
-
-
-    robo.garra.run(-400)
-    print("Gotcha!")
-    robo.wait(2000)
-    robo.bz.stop()
-
-    robo.garra.run(400)
-    print("Depositada!")
-    robo.wait(2000)
-    robo.bz.stop()
 
     robo.garra.run(-400)
     print("Abaixando")
@@ -25,12 +13,11 @@ def teste():
     robo.bz.stop()    
 
     robo.mecanismoDeposito.run(300)
-    print("Black ball is broken free!")
+    print("VÍTIMA was sent to Box1!")
     robo.wait(2000)
     robo.bz.stop()
 
     robo.mecanismoDeposito.run(-300)
-    print("Vitima is broken free!")
     robo.wait(2000)
     robo.bz.stop()
 
