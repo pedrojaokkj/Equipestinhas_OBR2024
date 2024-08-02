@@ -32,7 +32,6 @@ mecanismoDeposito = Motor(Port.D)
 
 
 bz = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=68.8, axle_track=170) # <-- Iniciando o DriveBase5
-bz.settings(straight_speed=200, turn_rate=150)
 
 
 sensorCorEsquerda = ColorSensor(Port.S1)

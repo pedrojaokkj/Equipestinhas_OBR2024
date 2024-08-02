@@ -13,27 +13,38 @@ def verde(sensor:robo.ColorSensor):
 
     if sensor == robo.sensorCorDireita:
         lado = 1
+        motor = robo.motorDireito
+        motor2 = robo.motorEsquerdo 
         outroSensor = robo.sensorCorEsquerda
     else:
         lado = -1
+        motor = robo.motorEsquerdo
+        motor2 = robo.motorDireito
         outroSensor = robo.sensorCorDireita
 
-    robo.bz.straight(95)
+    robo.bz.straight(103)
 
+    robo.bz.turn(20 * lado)
+    robo.bz.stop()
+    
+    motor2.run(200)
+    motor.run(-200) 
     while True:
-        robo.bz.drive(0, 90 *lado)  
-        if outroSensor.reflection <= 40:
-            robo.bz.stop()
+
+        if outroSensor.reflection() <= 40:
+            motor2.stop()
+            motor.stop()
             break
 
 
     while True:
-        robo.bz.drive(0, -90 * lado)  
-        if sensor.reflection <= 40:
+        motor.run(100)
+        motor2.run(-100)
+        if sensor.reflection() <= 40:
             robo.bz.stop()
             break    
 
-    robo.bz.stop()
+    robo.bz.turn(13)
 
-    #implementar ajustes
+
     
