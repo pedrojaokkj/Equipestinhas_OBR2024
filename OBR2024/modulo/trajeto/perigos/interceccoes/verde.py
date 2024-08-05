@@ -10,6 +10,7 @@ def verde(sensor:robo.ColorSensor):
     Parameters:
         sensor (ColorSensor) : Sensor que detectou a cor verde
     '''
+    print('Verde no {}'.format(sensor))
 
     if sensor == robo.sensorCorDireita:
         lado = 1

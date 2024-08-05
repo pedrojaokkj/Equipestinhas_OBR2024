@@ -10,7 +10,7 @@ from .verde import verde
 
 
 def becoOuDoisPretos():
-    '''Confere se o robô está em uma intercecção comum ou em um beco sem saída.
+    '''Confere se o robô está em uma intercecção comum ou em um beco sem saída e chama a função apropriada.
     
     '''
 

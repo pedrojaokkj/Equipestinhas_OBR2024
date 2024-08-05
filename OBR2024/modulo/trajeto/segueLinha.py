@@ -14,6 +14,9 @@ Color = robo.Color
 
 # Lógica de seguir linha
 def segueLinha():
+    '''Executa movimentos de acordo com a leitura dos sensores de cor.
+
+    '''
 
 
     if sensorD.color() == Color.WHITE:     #se o sensor direito ler branco...

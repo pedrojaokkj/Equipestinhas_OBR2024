@@ -15,6 +15,7 @@ def confirmaCor():
         corMaisComumDireita (Color) : Cor mais recorrente no sensor da direita
     '''
 
+    print('Confirmando Cor...')
 
     corEsquerda = []  #array que armazenará as leituras do sensor esquerdo
     corDireita = []   #array que armazenará as leituras do sensor direito
@@ -40,5 +41,9 @@ def confirmaCor():
     corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]  # Extrai apenas a cor
     corMaisComumDireita = item_mais_repetido(corDireita)[0]    # Extrai apenas a cor
 
+    print("Cores: {}".format())
+
     # Retorna a cor mais comum para ambos os sensores
     return corMaisComumEsquerda, corMaisComumDireita
+
+

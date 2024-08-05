@@ -23,5 +23,6 @@ def entradaDaSala():
         retorno = False
     elif (robo.sensorCorDireita.reflection() > 98 and robo.sensorCorEsquerda.reflection() > 98):
         retorno = True
+        print("Sala de resgate é {}".format(retorno))
 
     return retorno

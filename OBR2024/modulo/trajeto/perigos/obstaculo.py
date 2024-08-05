@@ -5,3 +5,4 @@ from ...robo import robo
 # Desvia do obstáculo
 def obstaculo():
     print("Desviando...")
+    

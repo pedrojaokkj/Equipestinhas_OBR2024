@@ -5,4 +5,5 @@
 from ....robo import robo
 
 def doisPretos():
+    print('Duplo preto')
     robo.bz.straight(50)

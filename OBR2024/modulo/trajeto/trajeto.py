@@ -18,14 +18,19 @@ from .perigos.obstaculo import obstaculo
 #Função do Trajeto Principal
 def trajeto():
     while True:
+
         while linhaVermelha() == False and entradaDaSala() == False:
+
+
             if robo.ultrassonicoFrente.distance() < 45:
                 obstaculo()
             else:
                 segueLinha()
 
+
         if entradaDaSala() == True:        
             resgate()
+
         elif linhaVermelha():
             print("Linha Vermelha")
             break
