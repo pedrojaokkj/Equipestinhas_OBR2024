@@ -12,6 +12,8 @@ def verde(sensor:robo.ColorSensor):
     '''
     print('Verde no {}'.format(sensor))
 
+    robo.bz.stop()
+
     if sensor == robo.sensorCorDireita:
         lado = 1
         motor = robo.motorDireito

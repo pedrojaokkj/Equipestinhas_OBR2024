@@ -14,6 +14,8 @@ def becoOuDoisPretos():
     
     '''
 
+    print("Conferindo Intercecção...")
+
     bz = robo.bz
     bz.straight(-50)
     #alinhar o robô
