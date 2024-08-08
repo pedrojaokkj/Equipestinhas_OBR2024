@@ -6,4 +6,4 @@ import modulo.robo.robo as robo
 
 
 def teste():
-    robo.bz.drive(200)
+    robo.bz.turn(-5)
