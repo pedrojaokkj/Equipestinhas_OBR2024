@@ -39,15 +39,15 @@ def preto(sensor:robo.ColorSensor):
 
         robo.bz.straight(40)
         robo.bz.stop()
-        motor2.reset_angle()
+        motor2.reset_angle(0)
 
         #vira o robô verificando se existe linha para a frente
-        while motor2.angle() < () and sensor2.reflection() > 50:
-            motor2.run(100) 
+        while motor2.angle() < 50 and sensor2.reflection() > 15:
+            motor2.run(50) 
 
         motor2.stop()
 
-        if sensor2.reflection() < 50:
+        if sensor2.reflection() < 15:
 
             print('Linha frontal detectada, Alterando rota.')
 
