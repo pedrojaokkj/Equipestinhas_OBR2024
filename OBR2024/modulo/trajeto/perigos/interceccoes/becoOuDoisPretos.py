@@ -18,7 +18,14 @@ def becoOuDoisPretos():
 
     bz = robo.bz
     bz.straight(-50)
+
     #alinhar o robô
+    while robo.sensorCorEsquerda.reflection() > 15:
+        bz.drive(0, 80)
+
+    bz.stop()
+    bz.turn(-10)
+
     bz.straight(50)
 
     cores = confirmaCor()

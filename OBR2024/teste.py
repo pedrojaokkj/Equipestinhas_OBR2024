@@ -6,4 +6,9 @@ import modulo.robo.robo as robo
 
 
 def teste():
-    robo.bz.drive(200)
+
+    while robo.sensorCorEsquerda.reflection() > 15:
+        robo.bz.drive(0, 80)
+
+    robo.bz.stop()
+    robo.bz.turn(-10)
