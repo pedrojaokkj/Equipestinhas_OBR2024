@@ -6,6 +6,7 @@ from ..robo import robo
 from .perigos.interceccoes.preto import preto
 from .perigos.interceccoes.verde import verde
 from .perigos.interceccoes.becoOuDoisPretos import becoOuDoisPretos
+from .perigos.interceccoes.pretoOuVerde import pretoOuVerde
 
 sensorD = robo.sensorCorDireita
 sensorE = robo.sensorCorEsquerda
@@ -27,10 +28,10 @@ def segueLinha():
             robo.bz.drive(200,0)
 
         elif sensorE.color() == Color.BLACK:   # e o sensor esquerdo ler preto
-            preto(sensorE)
+            pretoOuVerde(sensorE)
 
         elif sensorE.color() == Color.GREEN:    # e se o sensor esquerdo ler verde
-            verde(sensorE)
+            pretoOuVerde(sensorE)
 
 
 
@@ -41,7 +42,7 @@ def segueLinha():
 
 
         if sensorE.color() == Color.WHITE:    # e o sensor esquerdo ler branco
-            preto(sensorD)
+            pretoOuVerde(sensorD)
 
         elif sensorE.color() == Color.BLACK:   # e o sensor esquerdo ler preto
             becoOuDoisPretos()
@@ -58,7 +59,7 @@ def segueLinha():
 
 
         if sensorE.color() == Color.WHITE:    # e o sensor esquerdo ler branco
-            verde(sensorD)
+            pretoOuVerde(sensorD)
 
         elif sensorE.color() == Color.BLACK:   # e o sensor esquerdo ler preto
             becoOuDoisPretos()
