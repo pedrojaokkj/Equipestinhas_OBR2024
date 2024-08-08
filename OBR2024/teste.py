@@ -3,12 +3,8 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 import modulo.robo.robo as robo
-
+from modulo.trajeto.perigos.interceccoes.preto import preto
 
 def teste():
-
-    while robo.sensorCorEsquerda.reflection() > 15:
-        robo.bz.drive(0, 80)
-
-    robo.bz.stop()
-    robo.bz.turn(-10)
+    while True:
+        robo.bz.drive(150, 0)

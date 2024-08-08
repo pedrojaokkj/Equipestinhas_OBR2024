@@ -15,19 +15,75 @@ def preto(sensor:robo.ColorSensor):
 
     robo.bz.stop()
 
+
+    #Atribui as variáveis de acordo com o sensor passado como parametro
     if sensor == robo.sensorCorDireita:
+        lado = 1
         motor = robo.motorDireito
-        outroMotor = robo.motorEsquerdo
-        outroSensor = robo.sensorCorEsquerda
+        motor2 = robo.motorEsquerdo
+        sensor2 = robo.sensorCorEsquerda
     else:
+        lado = -1
         motor = robo.motorEsquerdo
-        outroMotor = robo.motorDireito
-        outroSensor = robo.sensorCorDireita
+        motor2 = robo.motorDireito
+        sensor2 = robo.sensorCorDireita
 
 
+
+
+    #Vira em caso de preto total 
     if sensor.reflection() <= 8:
+
+
         print("virar")
 
+        robo.bz.straight(40)
+        robo.bz.stop()
+        motor2.reset_angle(0)
+
+        #vira o robô verificando se existe linha para a frente
+        while motor2.angle() < 50 and sensor2.reflection() > 15:
+            motor2.run(50) 
+
+        motor2.stop()
+
+        if sensor2.reflection() < 15:
+
+            print('Linha frontal detectada, Alterando rota.')
+
+            motor2.run_target(100, -motor2.angle())
+            robo.bz.straight(40)
+        
+
+        else:
+
+
+            motor2.run(200)
+            motor.run(-200) 
+            while True:
+
+                if sensor2.reflection() <= 40:
+                    motor2.stop()
+                    motor.stop()
+                    break
+
+
+            while True:
+                motor.run(100)
+                motor2.run(-100)
+                if sensor.reflection() <= 40:
+                    robo.bz.stop()
+                    break    
+
+            robo.bz.turn(13 * lado)
+
+
+
+        
+
+        
+    #ajusta o robô em caso de invasão leve na linha
     else:
-        print("ajustar")        
+        print("ajustar")
+        robo.bz.turn(5 * lado)        
     
