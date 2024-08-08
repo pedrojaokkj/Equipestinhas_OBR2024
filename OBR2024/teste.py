@@ -6,4 +6,5 @@ import modulo.robo.robo as robo
 
 
 def teste():
-    robo.bz.turn(10)
+    print("testando")
+    
