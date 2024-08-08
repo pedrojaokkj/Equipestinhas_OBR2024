@@ -7,4 +7,4 @@ from modulo.trajeto.perigos.interceccoes.preto import preto
 
 def teste():
     while True:
-        robo.bz.drive(200, 0)
+        robo.bz.drive(150, 0)
