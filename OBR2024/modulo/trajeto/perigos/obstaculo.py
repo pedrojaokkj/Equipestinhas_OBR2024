@@ -4,7 +4,7 @@ from ...robo import robo
 
 # Desvia do obstáculo
 def obstaculo():
-    print("Desviando...")
+    print("detectando o obstaculo")
     robo.bz.settings(100)
 
     while True:
@@ -15,6 +15,7 @@ def obstaculo():
             robo.bz.turn(90)
             robo.bz.straight(-50)
 
+            print("dando a volta no obstaculo")
             while True:
                 if robo.ultrassonicoLado.distance() <= 70:
                     robo.bz.drive(70)
