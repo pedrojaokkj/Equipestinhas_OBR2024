@@ -41,7 +41,7 @@ def confirmaCor():
     corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]  # Extrai apenas a cor
     corMaisComumDireita = item_mais_repetido(corDireita)[0]    # Extrai apenas a cor
 
-    print("Cores: {}".format())
+    print("Cores: {}, {}".format(corMaisComumEsquerda, corMaisComumDireita))
 
     # Retorna a cor mais comum para ambos os sensores
     return corMaisComumEsquerda, corMaisComumDireita
