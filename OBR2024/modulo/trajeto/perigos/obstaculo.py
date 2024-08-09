@@ -8,26 +8,28 @@ def obstaculo():
     robo.bz.settings(100)
 
     while True:
-        if robo.ultrassonicoFrente.distance() > 45:
+        if robo.ultrassonicoFrente.distance() > 40:
            robo.bz.drive(100,0)
         else:
             robo.bz.straight(-20)
-            robo.bz.turn(75)
-            robo.bz.straight(-1000)
+            robo.bz.turn(80)
+            robo.bz.straight(-90)
+
             print("dando a volta no obstaculo")
-            while True:
-                if robo.ultrassonicoLado.distance() < 2000:
-                    robo.bz.drive(70,0)
+            while True: 
+                if robo.ultrassonicoLado.distance() < 300:
+                    robo.bz.drive(100,0)
                 else:
-                    robo.bz.straight(2000)
-                    robo.bz.turn(-90)
+                    robo.bz.straight(165)
+                    robo.bz.turn(-80)
+                    robo.bz.straight(135)
 
                     while True:
-                        if robo.ultrassonicoLado.distance() <= 150:
-                             robo.bz.drive(70)
+                        if robo.ultrassonicoLado.distance() < 150:
+                            robo.bz.drive(100,0)
                         else:
-                            robo.bz.straight(60)
-                            robo.bz.turn(-90)
+                            robo.bz.straight(200)
+                            robo.bz.turn(-80)
 
                             while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
                                 robo.bz.drive(80)

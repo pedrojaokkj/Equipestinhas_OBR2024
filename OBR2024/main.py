@@ -18,5 +18,5 @@ from modulo.trajeto.perigos.interceccoes.verde import verde
 #     verde(robo.sensorCorDireita)
 
 # # Chamada da Função de Testes
-# if __name__ == "__main__":
-#    teste()
+if __name__ == "__main__": #testando o obstaculo
+   teste()
