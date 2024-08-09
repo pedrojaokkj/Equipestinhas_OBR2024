@@ -32,58 +32,56 @@ def preto(sensor:robo.ColorSensor):
 
 
     #Vira em caso de preto total 
-    if sensor.reflection() <= 8:
+    print(sensor.reflection())
+    if sensor.reflection() <= 15:
 
 
         print("virar")
 
-        robo.bz.straight(40)
+        robo.bz.straight(50)
         robo.bz.stop()
         motor2.reset_angle(0)
 
         #vira o robô verificando se existe linha para a frente
-        while motor2.angle() < 50 and sensor2.reflection() > 15:
-            motor2.run(50) 
+        while motor2.angle() < 27 and sensor2.reflection() > 15:
+            robo.bz.drive(0, 40 * lado)
 
-        motor2.stop()
+        robo.bz.stop()
+        print(sensor2.reflection())
 
         if sensor2.reflection() < 15:
 
             print('Linha frontal detectada, Alterando rota.')
+            while sensor2.reflection() <= 15:
+                robo.bz.drive(0, -40 * lado)
 
-            motor2.run_target(100, -motor2.angle())
-            robo.bz.straight(40)
+            robo.bz.stop()
+            robo.bz.straight(20)
         
 
         else:
 
+            robo.bz.straight(-20)
+            while sensor2.reflection() > 15:
+                robo.bz.drive(0, 40 * lado)
 
-            motor2.run(200)
-            motor.run(-200) 
-            while True:
+            robo.bz.stop()
 
-                if sensor2.reflection() <= 40:
-                    motor2.stop()
-                    motor.stop()
-                    break
+            while sensor2.reflection() <= 15:
+                robo.bz.drive(0, -40 * lado)
 
-
-            while True:
-                motor.run(100)
-                motor2.run(-100)
-                if sensor.reflection() <= 40:
-                    robo.bz.stop()
-                    break    
-
-            robo.bz.turn(13 * lado)
-
-
-
+            robo.bz.stop() 
         
 
         
     #ajusta o robô em caso de invasão leve na linha
     else:
-        print("ajustar")
-        robo.bz.turn(5 * lado)        
-    
+        while sensor.reflection() > 15:
+            robo.bz.drive(0, -40 * lado)
+
+        robo.bz.stop()
+
+        while sensor.reflection() <= 15:
+            robo.bz.drive(0, 40 * lado)
+
+        robo.bz.stop()

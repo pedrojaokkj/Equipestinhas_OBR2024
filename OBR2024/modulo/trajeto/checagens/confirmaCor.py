@@ -15,6 +15,8 @@ def confirmaCor():
         corMaisComumDireita (Color) : Cor mais recorrente no sensor da direita
     '''
 
+    robo.bz.stop()
+
     print('Confirmando Cor...')
 
     corEsquerda = []  #array que armazenará as leituras do sensor esquerdo

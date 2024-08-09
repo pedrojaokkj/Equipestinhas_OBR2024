@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
 # # Chamada da Função de Testes
 # if __name__ == "__main__":
-#     teste()
+#     teste(robo.sensorCorDireita)

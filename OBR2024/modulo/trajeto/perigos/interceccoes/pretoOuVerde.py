@@ -16,6 +16,8 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         sensor (ColorSensor) : Sensor que detectou a cor
     '''
 
+    robo.bz.stop()
+
     if sensor.reflection() <= 8:
 
         cores = confirmaCor()
@@ -23,11 +25,11 @@ def pretoOuVerde(sensor:robo.ColorSensor):
 
         if sensor == robo.sensorCorDireita:
 
-            cor = cores[2]
+            cor = cores[1]
 
         else:
 
-            cor = cores[1]
+            cor = cores[0]
 
 
 
@@ -42,5 +44,5 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         
 
 
-    else:
+    elif sensor.reflection() <=60:
         preto(sensor)
