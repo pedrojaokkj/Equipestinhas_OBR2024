@@ -61,16 +61,17 @@ def preto(sensor:robo.ColorSensor):
 
         else:
 
-            robo.bz.straight(-20)
-            while sensor2.reflection() > 15:
-                robo.bz.drive(0, 40 * lado)
+            print("Procurando Linha...")
+            # robo.bz.straight(-20)
+            # while sensor2.reflection() > 15:
+            #     robo.bz.drive(0, 40 * lado)
 
-            robo.bz.stop()
+            # robo.bz.stop()
 
-            while sensor2.reflection() <= 15:
-                robo.bz.drive(0, -40 * lado)
+            # while sensor2.reflection() <= 15:
+            #     robo.bz.drive(0, -40 * lado)
 
-            robo.bz.stop() 
+            # robo.bz.stop() 
         
 
         
