@@ -12,24 +12,35 @@ def teste():
            robo.bz.drive(100,0)
         else:
             robo.bz.straight(-20)
-            robo.bz.turn(80)
+            robo.bz.stop()
+            robo.motorEsquerdo.run_angle(240,360)
             robo.bz.straight(-90)
 
             print("dando a volta no obstaculo")
             while True: 
-                if robo.ultrassonicoLado.distance() < 300:
-                    robo.bz.drive(100,0)
+                if robo.ultrassonicoLado.distance() < 200:
+                    robo.bz.drive(70,0)
                 else:
-                    robo.bz.straight(165)
+                    robo.bz.straight(110)
+                    robo.bz.stop()
+                    robo.motorDireito.run_angle(240,360)
                     robo.bz.turn(-80)
-                    robo.bz.straight(135)
 
                     while True:
-                        if robo.ultrassonicoLado.distance() < 150:
-                            robo.bz.drive(100,0)
+                        if robo.ultrassonicoLado.distance() > 200:
+                            robo.bz.drive(70,0)
                         else:
-                            robo.bz.straight(200)
-                            robo.bz.turn(-80)
+                            while True:
+                                if robo.ultrassonicoLado.distance() < 200:
+                                    robo.bz.drive(70,0)
+                                else:
+                                    robo.bz.straight(50)
+                                    robo.bz.turn(-80)
+
+                                    while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
+                                        robo.bz.drive(80)
+
+                                    
 
 
                         
