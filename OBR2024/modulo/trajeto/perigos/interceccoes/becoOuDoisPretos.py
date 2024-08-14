@@ -14,9 +14,25 @@ def becoOuDoisPretos():
     
     '''
 
+    print("Conferindo Intercecção(beco ou dois pretos)...")
+
+
     bz = robo.bz
+    bz.stop()
     bz.straight(-50)
+
     #alinhar o robô
+
+    while robo.sensorCorEsquerda.reflection() > 15:
+        robo.bz.drive(0, 40)
+
+        robo.bz.stop()
+
+    while robo.sensorCorEsquerda.reflection() <= 15:
+        robo.bz.drive(0, -40)
+
+    robo.bz.stop()
+
     bz.straight(50)
 
     cores = confirmaCor()
