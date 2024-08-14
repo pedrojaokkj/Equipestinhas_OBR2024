@@ -70,3 +70,7 @@ def teste(sensor:robo.ColorSensor):
 
 
 
+
+def teste2():
+    while True:
+        robo.bz.drive(150, 0)

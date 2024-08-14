@@ -3,16 +3,16 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from modulo.trajeto.trajeto import trajeto
-from teste import teste
+from teste import teste, teste2
 from modulo.robo import robo
 
 
 # Chamada da Função Principal
-if __name__ == "__main__":
-    trajeto()
+# if __name__ == "__main__":
+#     trajeto()
 
 
 
 # # Chamada da Função de Testes
-# if __name__ == "__main__":
-#     teste(robo.sensorCorDireita)
+if __name__ == "__main__":
+    teste2()
