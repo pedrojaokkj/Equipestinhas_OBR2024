@@ -5,72 +5,73 @@
 import modulo.robo.robo as robo
 from modulo.trajeto.perigos.interceccoes.preto import preto
 
-def teste(sensor:robo.ColorSensor):
-    print("Função Preto")
-
-    robo.bz.stop()
-
-
-    #Atribui as variáveis de acordo com o sensor passado como parametro
-    if sensor == robo.sensorCorDireita:
-        lado = 1
-        motor = robo.motorDireito
-        motor2 = robo.motorEsquerdo
-        sensor2 = robo.sensorCorEsquerda
-    else:
-        lado = -1
-        motor = robo.motorEsquerdo
-        motor2 = robo.motorDireito
-        sensor2 = robo.sensorCorDireita
-
-
-
-
-    #Vira em caso de preto total 
-    print(sensor.reflection())
-    print(sensor.color())
-    if sensor.reflection() <= 15:
-
-
-        print("virar")
-
-        robo.bz.straight(50)
-        robo.bz.stop()
-        motor2.reset_angle(0)
-
-        #vira o robô verificando se existe linha para a frente
-        while motor2.angle() < 27 and sensor2.reflection() > 15:
-            robo.bz.drive(0, 40 * lado)
-
-        robo.bz.stop()
-        print(sensor2.reflection())
-        if sensor2.reflection() < 15:
-
-            print('Linha frontal detectada, Alterando rota.')
-
-            while sensor2.reflection() <= 15:
-                robo.bz.drive(0, -40 * lado)
-
-            robo.bz.stop()
-            robo.bz.straight(20)
-        
-
-        else:
-
-            robo.bz.straight(-20)
-            while sensor2.reflection() > 15:
-                robo.bz.drive(0, 40 * lado)
-
-            robo.bz.stop()
-
-            while sensor2.reflection() <= 15:
-                robo.bz.drive(0, -40 * lado)
-
-            robo.bz.stop() 
-
-
-
-
-def teste2():
+def teste():
+    print("testando obstaculo")
+    print("identificando o obstaculo")
     while True:
-        robo.bz.drive(150, 0)
+        if robo.ultrassonicoFrente.distance() > 40:
+           robo.bz.drive(100,0)
+        else:
+            
+            while True:
+                if robo.sensorCorEsquerda.color() != robo.Color.BLACK:
+                    robo.bz.drive(-80,0)
+                    print("dando a volta no obstaculo")
+
+                    while True: 
+                
+                        if robo.ultrassonicoLado.distance() < 200:
+                            robo.bz.drive(70,0)
+                        else:
+                            robo.bz.straight(140)
+                            robo.bz.turn(-170)
+
+                            while True: 
+                                if robo.ultrassonicoLado.distance() > 100:
+                                    robo.bz.drive(100,0)
+                                else:
+                            
+                                    while True:
+                                        if robo.ultrassonicoLado.distance() > 150:
+                                            robo.bz.drive(80,0)
+                                        else:
+                                            robo.bz.straight(70)
+                                            robo.bz.turn(-170)
+                                            
+                                            print("indo identificar a linha")
+                                            while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
+                                                robo.bz.drive(80)
+
+                                        
+
+                                        break
+                                    break
+                                break
+                            break
+                        break
+            
+            
+            
+            
+                   
+            
+            
+
+
+                            
+
+                    
+
+
+            
+
+                        
+                
+
+
+
+
+            
+                
+
+        
