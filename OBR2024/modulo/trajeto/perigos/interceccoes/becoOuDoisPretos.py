@@ -10,13 +10,29 @@ from .verde import verde
 
 
 def becoOuDoisPretos():
-    '''Confere se o robô está em uma intercecção comum ou em um beco sem saída.
+    '''Confere se o robô está em uma intercecção comum ou em um beco sem saída e chama a função apropriada.
     
     '''
 
+    print("Conferindo Intercecção(beco ou dois pretos)...")
+
+
     bz = robo.bz
+    bz.stop()
     bz.straight(-50)
+
     #alinhar o robô
+
+    while robo.sensorCorEsquerda.reflection() > 15:
+        robo.bz.drive(0, 40)
+
+        robo.bz.stop()
+
+    while robo.sensorCorEsquerda.reflection() <= 15:
+        robo.bz.drive(0, -40)
+
+    robo.bz.stop()
+
     bz.straight(50)
 
     cores = confirmaCor()

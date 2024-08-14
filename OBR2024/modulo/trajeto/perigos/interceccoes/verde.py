@@ -10,17 +10,20 @@ def verde(sensor:robo.ColorSensor):
     Parameters:
         sensor (ColorSensor) : Sensor que detectou a cor verde
     '''
+    print('Verde no {}'.format(sensor))
+
+    robo.bz.stop()
 
     if sensor == robo.sensorCorDireita:
         lado = 1
         motor = robo.motorDireito
         motor2 = robo.motorEsquerdo 
-        outroSensor = robo.sensorCorEsquerda
+        sensor2 = robo.sensorCorEsquerda
     else:
         lado = -1
         motor = robo.motorEsquerdo
         motor2 = robo.motorDireito
-        outroSensor = robo.sensorCorDireita
+        sensor2 = robo.sensorCorDireita
 
     robo.bz.straight(103)
 
@@ -31,7 +34,7 @@ def verde(sensor:robo.ColorSensor):
     motor.run(-200) 
     while True:
 
-        if outroSensor.reflection() <= 40:
+        if sensor2.reflection() <= 40:
             motor2.stop()
             motor.stop()
             break
@@ -44,7 +47,7 @@ def verde(sensor:robo.ColorSensor):
             robo.bz.stop()
             break    
 
-    robo.bz.turn(13)
+    robo.bz.turn(13 * lado)
 
 
     

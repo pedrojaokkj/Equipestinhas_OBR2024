@@ -3,7 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 import modulo.robo.robo as robo
-
+from modulo.trajeto.perigos.interceccoes.preto import preto
 
 def teste():
     print("testando obstaculo")
