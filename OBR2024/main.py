@@ -3,7 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from modulo.trajeto.trajeto import trajeto
-from teste import teste, teste2
+from teste import teste
 from modulo.robo import robo
 
 
@@ -15,4 +15,4 @@ from modulo.robo import robo
 
 # # Chamada da Função de Testes
 if __name__ == "__main__":
-    teste2()
+    teste()
