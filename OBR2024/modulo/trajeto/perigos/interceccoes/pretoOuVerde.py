@@ -44,5 +44,5 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         
 
 
-    elif sensor.reflection() <=60:
+    else:
         preto(sensor)

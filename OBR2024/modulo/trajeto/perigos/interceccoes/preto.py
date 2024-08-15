@@ -43,7 +43,7 @@ def preto(sensor:robo.ColorSensor):
         motor2.reset_angle(0)
 
         #vira o robô verificando se existe linha para a frente
-        while motor2.angle() < 27 and sensor2.reflection() > 15:
+        while motor2.angle() < 40 and sensor2.reflection() > 15:
             robo.bz.drive(0, 40 * lado)
 
         robo.bz.stop()
@@ -62,27 +62,38 @@ def preto(sensor:robo.ColorSensor):
         else:
 
             print("Procurando Linha...")
-            # robo.bz.straight(-20)
-            # while sensor2.reflection() > 15:
-            #     robo.bz.drive(0, 40 * lado)
+            while motor2.angle() >= 0:
+                robo.bz.drive(0, -40 * lado)
+            
+            robo.bz.stop()
+            robo.bz.straight(15)
 
-            # robo.bz.stop()
+            while sensor2.reflection() > 15:
+                robo.bz.drive(0, 40 * lado)
 
-            # while sensor2.reflection() <= 15:
-            #     robo.bz.drive(0, -40 * lado)
+            robo.bz.stop()
 
-            # robo.bz.stop() 
-        
+            while sensor2.reflection() <= 35:
+                robo.bz.drive(0, -40 * lado)
+
+
+            robo.bz.stop()
+            robo.bz.turn(-5 * lado) 
+            robo.bz.straight(-15)
+            robo.bz.stop()
 
         
     #ajusta o robô em caso de invasão leve na linha
     else:
-        while sensor.reflection() > 15:
-            robo.bz.drive(0, -40 * lado)
+        while sensor2.reflection() > 15:
+            robo.bz.drive(0, 40 * lado)
 
         robo.bz.stop()
 
-        while sensor.reflection() <= 15:
-            robo.bz.drive(0, 40 * lado)
+        while sensor2.reflection() <= 15:
+            robo.bz.drive(0, -40 * lado)
 
+        robo.bz.stop()
+        robo.bz.turn(-5 * lado) 
+        robo.bz.straight(-15)
         robo.bz.stop()
