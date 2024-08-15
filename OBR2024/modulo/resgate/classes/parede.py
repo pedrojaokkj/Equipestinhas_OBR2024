@@ -3,6 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from modulo.robo import robo
+from .pedacoParede import PedacoDeParede
 
 class Parede:
     
@@ -19,6 +20,10 @@ class Parede:
             raise ValueError("Valor deve ser uma string 'a', 'b', 'c', 'd'")
         self._valor = valor.casefold()
 
+        self._1 = PedacoDeParede(self.valor, parte = 1)
+        self._2 = PedacoDeParede(self.valor, parte = 2)
+        self._3 = PedacoDeParede(self.valor, parte = 3)
+        self._4 = PedacoDeParede(self.valor, parte = 4)
 
 
 
@@ -34,4 +39,5 @@ class Parede:
         if not isinstance(valor, str) or valor.casefold() in ['a', 'b', 'c', 'd'] :
             raise ValueError("Valor deve ser uma string 'a', 'b', 'c', 'd'"== False)
         self._valor = valor.casefold()
+
 

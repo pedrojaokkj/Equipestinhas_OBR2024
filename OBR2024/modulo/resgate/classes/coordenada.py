@@ -16,6 +16,13 @@ class Coordenada:
             y(int) : Coluna onde o robô se encontra
         '''
 
+        if not isinstance(x, int) or x > 4 or x < 0 :
+            raise ValueError("X deve ser um valor entre 1 e 4")
+        
+
+        if not isinstance(y, int) or y > 4 or y < 0 :
+            raise ValueError("Y deve ser um valor entre 1 e 4")        
+
 
 
         self._x = x
