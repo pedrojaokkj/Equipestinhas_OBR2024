@@ -4,9 +4,10 @@
 #______________________________________________________________________________________________________________________________________
 import modulo.robo.robo as robo
 from modulo.trajeto.perigos.interceccoes.preto import preto
+from modulo.trajeto.perigos.interceccoes.pretoOuVerde import pretoOuVerde
 
 def teste():
-    robo.bz.turn(90)
+    pretoOuVerde(robo.sensorCorDireita)
 
             
             

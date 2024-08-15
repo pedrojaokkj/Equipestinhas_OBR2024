@@ -25,29 +25,25 @@ def verde(sensor:robo.ColorSensor):
         motor2 = robo.motorDireito
         sensor2 = robo.sensorCorDireita
 
-    robo.bz.straight(103)
+    robo.bz.straight(80)
 
-    robo.bz.turn(20 * lado)
+    robo.bz.turn(35 * lado)
     robo.bz.stop()
-    
-    motor2.run(200)
-    motor.run(-200) 
-    while True:
 
-        if sensor2.reflection() <= 40:
-            motor2.stop()
-            motor.stop()
-            break
+    print("Procurando Linha...")
+
+    while sensor2.reflection() > 15:
+        robo.bz.drive(0, 40 * lado)
+
+    robo.bz.stop()
+
+    while sensor2.reflection() <= 35:
+        robo.bz.drive(0, -40 * lado)
 
 
-    while True:
-        motor.run(100)
-        motor2.run(-100)
-        if sensor.reflection() <= 40:
-            robo.bz.stop()
-            break    
-
-    robo.bz.turn(13 * lado)
-
+    robo.bz.stop()
+    robo.bz.turn(-5 * lado) 
+    robo.bz.straight(-15)
+    robo.bz.stop()
 
     
