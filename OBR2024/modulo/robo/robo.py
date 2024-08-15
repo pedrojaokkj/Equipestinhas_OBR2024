@@ -31,7 +31,7 @@ garra = Motor(Port.C)
 mecanismoDeposito = Motor(Port.D)
 
 
-bz = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=40.9, axle_track=170) # <-- Iniciando o DriveBase5
+bz = DriveBase(motorEsquerdo, motorDireito, wheel_diameter=40.9, axle_track=190) # <-- Iniciando o DriveBase5
 
 
 sensorCorEsquerda = ColorSensor(Port.S1)

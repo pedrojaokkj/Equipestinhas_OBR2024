@@ -4,45 +4,57 @@ from ...robo import robo
 
 # Desvia do obstáculo
 def obstaculo():
+    
     print("detectando o obstaculo")
-    robo.bz.settings(100)
-    while True:
-        if robo.ultrassonicoFrente.distance() > 40:
-           robo.bz.drive(100,0)
-        else:
-            robo.bz.straight(-20)
-            robo.bz.stop()
-            robo.motorEsquerdo.run_angle(240,360)
-            robo.bz.straight(-90)
-
-            print("dando a volta no obstaculo")
-            while True: 
-                if robo.ultrassonicoLado.distance() < 200:
-                    robo.bz.drive(70,0)
-                else:
-                    robo.bz.straight(110)
-                    robo.bz.stop()
-                    robo.motorDireito.run_angle(240,360)
-                    robo.bz.turn(-80)
-
-                    while True:
-                        if robo.ultrassonicoLado.distance() > 200:
-                            robo.bz.drive(70,0)
-                        else:
-                            while True:
-                                if robo.ultrassonicoLado.distance() < 200:
-                                    robo.bz.drive(70,0)
-                                else:
-                                    robo.bz.straight(50)
-                                    robo.bz.turn(-80)
-
-                                    while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
-                                        robo.bz.drive(80)
-                                break
-                            break
-                        break
+    robo.bz.turn(90)
 
 
+    print('sensores detectam o preto da linha( antes do obstaculo)')        
+    while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
+        robo.bz.drive(-100,0)
+    robo.bz.stop()
+
+    print('contornando obstaculo')
+    while robo.ultrassonicoLado.distance() < 150:
+        robo.bz.drive(100,0)
+    robo.bz.stop()
+
+    robo.bz.straight(160)
+    robo.bz.turn(-90)
+
+    while robo.ultrassonicoLado.distance() > 150:
+            robo.bz.drive(100,0)
+    robo.bz.stop()
+
+    robo.wait(700)
+
+    robo.bz.straight(10)
+
+    while robo.ultrassonicoLado.distance() < 200:
+        robo.bz.drive(100,0)
+    robo.bz.stop()
+
+    robo.wait(700)
+
+    robo.bz.straight(180)
+    robo.bz.turn(-90)
+
+    print('voltando para a linha(depois do obstaculo)')
+    print('sensores detectam o preto da inha(depois do obstaculo)')
+    while robo.sensorCorEsquerda.color() and robo.sensorCorDireita.color() != robo.Color.BLACK:
+        robo.bz.drive(100,0)
+    robo.bz.stop()
+
+    robo.wait(700)
+
+    print('robo se ajusta na linha')
+    while robo.sensorCorEsquerda.color() and robo.sensorCorDireita.color() == robo.Color.BLACK:
+        robo.bz.drive(100,0)
+    robo.bz.stop()
+
+    robo.bz.straight(40)
+    robo.bz.turn(90)
+    
                         
                              
                         
