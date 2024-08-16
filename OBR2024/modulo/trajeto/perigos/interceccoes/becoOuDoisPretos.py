@@ -7,6 +7,7 @@ from ...checagens.confirmaCor import confirmaCor
 from .doisPretos import doisPretos
 from .becoSemSaida import becoSemSaida
 from .verde import verde
+from ...checagens.checar_rampa import checarRampa
 
 
 def becoOuDoisPretos():
@@ -15,16 +16,12 @@ def becoOuDoisPretos():
     '''
 
     print("Conferindo Intercecção(beco ou dois pretos)...")
-
-
     bz = robo.bz
-    bz.stop()
-    bz.straight(40)
-
-    bz.straight(-40)
-
-    if robo.sensorCorDireita.reflection() > 60 or robo.sensorCorEsquerda.reflection() > 60:
+    
+    if checarRampa() == True:
+        bz.straight()
         return
+    
     bz.straight(-40)
 
     
