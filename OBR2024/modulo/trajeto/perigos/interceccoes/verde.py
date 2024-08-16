@@ -25,7 +25,7 @@ def verde(sensor:robo.ColorSensor):
         motor2 = robo.motorDireito
         sensor2 = robo.sensorCorDireita
 
-    robo.bz.straight(80)
+    robo.bz.straight(75)
 
     robo.bz.turn(35 * lado)
     robo.bz.stop()

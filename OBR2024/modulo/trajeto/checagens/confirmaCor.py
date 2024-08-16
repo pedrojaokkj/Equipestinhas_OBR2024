@@ -25,14 +25,14 @@ def confirmaCor():
 
     #vai pra frente armazenando as leituras
     for i in range(85):
-        robo.bz.drive(25,0)
+        robo.bz.drive(15,0)
         corEsquerda.append(robo.sensorCorEsquerda.color())
         corDireita.append(robo.sensorCorDireita.color())
         robo.wait(1)
 
     #volta armazenando as leituras
     for i in range(100):
-        robo.bz.drive(-25,0)
+        robo.bz.drive(-15,0)
         corEsquerda.append(robo.sensorCorEsquerda.color())
         corDireita.append(robo.sensorCorDireita.color())
         robo.wait(1)
@@ -40,8 +40,21 @@ def confirmaCor():
     robo.bz.stop()
 
     # Encontra os itens mais comuns
-    corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]  # Extrai apenas a cor
-    corMaisComumDireita = item_mais_repetido(corDireita)[0]    # Extrai apenas a cor
+    verdesD = [cor for cor in corDireita if cor == robo.Color.GREEN]
+    verdesE = [cor for cor in corEsquerda if cor == robo.Color.GREEN]
+
+    if len(verdesD) / len(corDireita) > 0.20:
+        corMaisComumDireita = robo.Color.GREEN
+    else:
+        corMaisComumDireita = item_mais_repetido(corDireita)[0]    # Extrai apenas a cor
+
+    if len(verdesE) / len(corEsquerda) > 0.20:
+        corMaisComumEsquerda = robo.Color.GREEN
+    else:
+        corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]  # Extrai apenas a cor
+
+    print("Esquerda {}".format(len(verdesE) / len(corEsquerda)))
+    print("Direita: {}".format(len(verdesD) / len(corDireita)))
 
     print("Cores: {}, {}".format(corMaisComumEsquerda, corMaisComumDireita))
 

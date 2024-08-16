@@ -18,7 +18,8 @@ def pretoOuVerde(sensor:robo.ColorSensor):
 
     robo.bz.stop()
 
-    if sensor.reflection() <= 8:
+    if sensor.reflection() <= 14:
+
 
         cores = confirmaCor()
 
@@ -41,6 +42,20 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         elif cor == robo.Color.GREEN:
 
             verde(sensor)
+
+        else:
+            robo.bz.straight(-30)
+            while robo.sensorCorEsquerda.reflection() > 15:
+                robo.bz.drive(0, 40)
+
+            robo.bz.stop()
+
+            while robo.sensorCorEsquerda.reflection() <= 15:
+                robo.bz.drive(0, -40)
+
+            robo.bz.stop()
+
+            robo.bz.turn(-7)
         
 
 
