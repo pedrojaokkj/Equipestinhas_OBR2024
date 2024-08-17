@@ -17,6 +17,8 @@ from .perigos.obstaculo import obstaculo
 
 #Função do Trajeto Principal
 def trajeto():
+    robo.mecanismoDeposito.run_time(-100, 1000)
+    robo.garra.run_time(100, 1000)
     while True:
 
         while linhaVermelha() == False and entradaDaSala() == False:

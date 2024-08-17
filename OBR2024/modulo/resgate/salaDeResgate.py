@@ -2,10 +2,16 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ..robo import robo
-
+from ..robo.robo import robo
+from .classes.classeSala import SalaDeResgate
+from ..robo.classeRobo import Robo
 
 
 # Execução do Resgate
 def resgate():
-    print("Resgatando...")
+    print("Alinhando...")
+    #alinhar
+
+    print("Criando Instância de Sala...")
+    Sala = SalaDeResgate(robo)
+

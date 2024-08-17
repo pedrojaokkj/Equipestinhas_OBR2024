@@ -37,13 +37,16 @@ def preto(sensor:robo.ColorSensor):
 
 
         print("virar")
+        while sensor.reflection() <= 15:
+            robo.bz.drive(40, 0)
 
-        robo.bz.straight(50)
+        robo.bz.stop()
+        robo.bz.straight(40)
         robo.bz.stop()
         motor2.reset_angle(0)
 
         #vira o robô verificando se existe linha para a frente
-        while motor2.angle() < 27 and sensor2.reflection() > 15:
+        while motor2.angle() < 50 and sensor2.reflection() > 15:
             robo.bz.drive(0, 40 * lado)
 
         robo.bz.stop()
@@ -55,6 +58,7 @@ def preto(sensor:robo.ColorSensor):
             while sensor2.reflection() <= 15:
                 robo.bz.drive(0, -40 * lado)
 
+            robo.bz.turn(-6 * lado)
             robo.bz.stop()
             robo.bz.straight(20)
         
@@ -62,27 +66,34 @@ def preto(sensor:robo.ColorSensor):
         else:
 
             print("Procurando Linha...")
-            # robo.bz.straight(-20)
-            # while sensor2.reflection() > 15:
-            #     robo.bz.drive(0, 40 * lado)
+            while motor2.angle() >= 0:
+                robo.bz.drive(0, -40 * lado)
+            
+            robo.bz.stop()
+            robo.bz.straight(10)
 
-            # robo.bz.stop()
+            while sensor2.reflection() > 15:
+                robo.bz.drive(0, 40 * lado)
 
-            # while sensor2.reflection() <= 15:
-            #     robo.bz.drive(0, -40 * lado)
+            robo.bz.stop()
 
-            # robo.bz.stop() 
-        
+            while sensor2.reflection() <= 65:
+                robo.bz.drive(0, -40 * lado)
+
+
+            robo.bz.stop()
+            robo.bz.turn(-6 * lado) 
+            robo.bz.straight(-15)
+            robo.bz.stop()
 
         
     #ajusta o robô em caso de invasão leve na linha
     else:
-        while sensor.reflection() > 15:
-            robo.bz.drive(0, -40 * lado)
-
+        
         robo.bz.stop()
+        while sensor.reflection() < 65:    
+            motor.run(-35)
 
-        while sensor.reflection() <= 15:
-            robo.bz.drive(0, 40 * lado)
-
+        motor.stop() 
+        robo.bz.straight(-6)
         robo.bz.stop()

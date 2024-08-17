@@ -9,33 +9,58 @@ def becoSemSaida():
     
     '''
     
-    print("meia volta")
+    print('os dois sensores ver o verde')
+    while robo.sensorCorDireita.color() and robo.sensorCorEsquerda.color() == robo.Color.GREEN:
+        robo.bz.drive(100,0)
+    robo.bz.stop()
+    
+    robo.wait(500)
 
-    while True:
-        print('os dois sensores detectam o verde')
-        if robo.sensorCorEsquerda.color() and robo.sensorCorDireita.color() == robo.Color.GREEN:
-            print('os dois sensores detectam o preto, e o robo anda 8cm para frente')
-            while robo.sensorCorEsquerda.color() and robo.sensorCorDireita.color() != robo.Color.BLACK:
-                robo.bz.drive(80)
-            
-            else:
-                robo.bz.straight(50)
-                print(" robo gira até o sensor da esquerda ver o preto")
-                while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
-                    robo.bz.stop()
-                    robo.motorEsquerdo.run(-50)
-                
-                else:
-                    robo.wait(2000)
-                    robo.motorEsquerdo.angle(-150)
-                    print(" robo gira até o sensor da esquerda ver o preto(linha)")
-                    while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
-                        robo.motorEsquerdo.run(-50)
+    print('os dois sensores ver a linha preta do beco,')
+    while robo.sensorCorDireita.color() and robo.sensorCorEsquerda.color() == robo.Color.BLACK:
+        robo.bz.drive(100,0)
+    robo.bz.stop()
 
-                    else:
-                        robo.wait(2000)
-                        robo.motorEsquerdo.angle(-150)
+    print('os sensores passam da linha do beco, e param de ver o preto')
+    robo.bz.straight(60)
+    robo.bz.stop()
+    
+    print('robo gira até o sensor da esquerda ver o preto(linha do beco)')
+    while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
+        robo.motorDireito.run(200)
+        robo.motorEsquerdo.run(-200)
+    robo.bz.stop()
+
+    robo.wait(500)
+    
+    print('os sensores passam da linha do beco, e param de ver o preto')
+    while robo.sensorCorEsquerda.color() == robo.Color.BLACK:
+        robo.motorDireito.run(200)
+        robo.motorEsquerdo.run(-200)
+    robo.bz.stop()
+
+    robo.wait(500)
+    
+    print('robo gira até o sensor da esquerda ver o preto(linha do trajeto)')
+    while robo.sensorCorEsquerda.color() != robo.Color.BLACK:
+        robo.motorDireito.run(200)
+        robo.motorEsquerdo.run(-200)
+    robo.bz.stop()
+
+    robo.wait(500)
+    
+    print('robo se ajusta para voltar a seguir linha')
+    while robo.sensorCorEsquerda.color() == robo.Color.BLACK:
+        robo.motorDireito.run(200)
+        robo.motorEsquerdo.run(-200)
+    robo.bz.stop()
+
+    robo.wait(500)
+
+    robo.motorEsquerdo.run_angle(200,-60)
+                                    
+                                    
+                                    
+                                    
 
 
-
-        break
