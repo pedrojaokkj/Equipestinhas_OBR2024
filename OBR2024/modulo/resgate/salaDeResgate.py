@@ -3,7 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from ..robo.robo import robo
-from .classes.classeSala import SalaDeResgate
+from .classes.Sala.classeSala import SalaDeResgate
 from ..robo.classeRobo import Robo
 
 

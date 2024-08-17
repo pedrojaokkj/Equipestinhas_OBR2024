@@ -3,12 +3,13 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from modulo.robo.robo import robo
-from ..pedacoParede import PedacoDeParede
-from..parede import Parede
-from ....robo.classeRobo import Robo
-from ..area import AreaDeResgate
+from ...pedacoParede import PedacoDeParede
+from...parede import Parede
+from .....robo.classeRobo import Robo
+from ...area import AreaDeResgate
+from ...Coordenada.coordenada import Coordenada
 
-def escanearSala():
+def escanearSala(mapa : list[list[Coordenada]]):
     ''' Faz as atribuções das propriedades da sala, centraliza o robô e retorna as propriedades
 
     
@@ -20,14 +21,19 @@ def escanearSala():
     '''
 
     print("Escaneando Sala...")
-
-    largura = 90
-    comprimento = 90
-    entrada = PedacoDeParede() 
-    saida = (True, PedacoDeParede())
-    area1 = AreaDeResgate("D", 'A')
-    area2 = AreaDeResgate("D", 'C')
+    #sempre se sala.frenteEsperada == False -> capturar
 
 
+        #robo entra no ladrilho x=? y=1
 
-    return (largura, comprimento, entrada, saida, area1, area2)
+
+        #ladrilho
+
+    
+
+    largura = 3 #ou 4
+    comprimento = 3 #ou 4
+
+
+
+    return (mapa)

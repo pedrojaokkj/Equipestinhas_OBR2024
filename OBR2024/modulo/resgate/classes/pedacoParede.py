@@ -5,7 +5,7 @@
 from modulo.robo import robo
 from .parede import Parede
 from .direcao import Direcao
-from coordenada import Coordenada
+from OBR2024.modulo.resgate.classes.Coordenada.coordenada import Coordenada
 
 class PedacoDeParede:
     def __init__(self, parede : str, parte: int = 0, coordenada : Coordenada = Coordenada(), aberta = None) -> None:
