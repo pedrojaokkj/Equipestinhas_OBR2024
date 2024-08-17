@@ -5,6 +5,7 @@
 
 from ...robo import robo
 from .itemRecorrente import item_mais_repetido
+from .contarItens import contar_itens
 
 
 def confirmaCor():
@@ -43,22 +44,38 @@ def confirmaCor():
     verdesD = [cor for cor in corDireita if cor == robo.Color.GREEN]
     verdesE = [cor for cor in corEsquerda if cor == robo.Color.GREEN]
 
-    if len(verdesD) / len(corDireita) > 0.20:
-        corMaisComumDireita = robo.Color.GREEN
-    else:
-        corMaisComumDireita = item_mais_repetido(corDireita)[0]    # Extrai apenas a cor
 
-    if len(verdesE) / len(corEsquerda) > 0.20:
-        corMaisComumEsquerda = robo.Color.GREEN
-    else:
-        corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]  # Extrai apenas a cor
+    #lógica para o sensor direito
+    print('Mais recorrente D: {}'.format(item_mais_repetido(corDireita)))
+    contadosD = contar_itens(corDireita)
+    contadosD.sort()
+    print('\n')
+    print('Direita')
+    for quantidade, cor, percentual in contadosD:
+        percentual = (quantidade / len(corDireita)) * 100
+        print("Cor: {} Ocorrências: {} Percentual: {:.2f}%".format(cor, quantidade, percentual))
 
-    print("Esquerda {}".format(len(verdesE) / len(corEsquerda)))
-    print("Direita: {}".format(len(verdesD) / len(corDireita)))
+    print('\n')
 
-    print("Cores: {}, {}".format(corMaisComumEsquerda, corMaisComumDireita))
+    #lógica para o sensor esquerdo
+    print('Mais recorrente E: {}'.format(item_mais_repetido(corEsquerda)))
+
+    contadosE = contar_itens(corEsquerda)
+    contadosE.sort()
+    print('\n')
+    print('Esquerda')
+    for quantidade, cor, percentual in contadosE:
+        print("Cor: {} Ocorrências: {} Percentual: {:.2f}%".format(cor, quantidade, percentual))
+
+
+
+
+
+    corMaisComumDireita = contadosD[0][1]    # Extrai apenas a cor
+    corMaisComumEsquerda = contadosE[0][1]  # Extrai apenas a cor
+
 
     # Retorna a cor mais comum para ambos os sensores
-    return corMaisComumEsquerda, corMaisComumDireita
+    return corMaisComumEsquerda, corMaisComumDireita, contadosE, contadosD
 
 

@@ -6,6 +6,7 @@ from ....robo import robo
 from ...checagens.confirmaCor import confirmaCor
 from .preto import preto 
 from .verde import verde
+from ...checagens.checar_rampa import checarRampa
 
 
 
@@ -20,43 +21,46 @@ def pretoOuVerde(sensor:robo.ColorSensor):
 
     if sensor.reflection() <= 14:
 
-
-        cores = confirmaCor()
-
-
-        if sensor == robo.sensorCorDireita:
-
-            cor = cores[1]
+        if checarRampa() == True:
+            robo.bz.straight(65)
 
         else:
-
-            cor = cores[0]
-
+            cores = confirmaCor()
 
 
-        if cor == robo.Color.BLACK:
+            if sensor == robo.sensorCorDireita:
 
-            preto(sensor)
+                cor = cores[1]
+
+            else:
+
+                cor = cores[0]
 
 
-        elif cor == robo.Color.GREEN:
 
-            verde(sensor)
+            if cor == robo.Color.BLACK:
 
-        else:
-            robo.bz.straight(-30)
-            while robo.sensorCorEsquerda.reflection() > 15:
-                robo.bz.drive(0, 40)
+                preto(sensor)
 
-            robo.bz.stop()
 
-            while robo.sensorCorEsquerda.reflection() <= 15:
-                robo.bz.drive(0, -40)
+            elif cor == robo.Color.GREEN:
 
-            robo.bz.stop()
+                verde(sensor)
 
-            robo.bz.turn(-7)
-        
+            else:
+                robo.bz.straight(-30)
+                while robo.sensorCorEsquerda.reflection() > 15:
+                    robo.bz.drive(0, 40)
+
+                robo.bz.stop()
+
+                while robo.sensorCorEsquerda.reflection() <= 15:
+                    robo.bz.drive(0, -40)
+
+                robo.bz.stop()
+
+                robo.bz.turn(-7)
+            
 
 
     else:
