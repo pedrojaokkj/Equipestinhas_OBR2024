@@ -8,6 +8,7 @@ from .doisPretos import doisPretos
 from .becoSemSaida import becoSemSaida
 from .verde import verde
 from ...checagens.checar_rampa import checarRampa
+from ...checagens.rampaCor import rampaCor
 
 
 def becoOuDoisPretos():
@@ -17,8 +18,15 @@ def becoOuDoisPretos():
 
     print("Conferindo Intercecção(beco ou dois pretos)...")
     bz = robo.bz
+
+    rampa = False
+    cores = confirmaCor()
+
+    if rampaCor(cores[2], cores[3], dois=True) == True:
+        rampa = checarRampa()
+
     
-    if checarRampa() == True:
+    if rampa == True:
         bz.straight(65)
 
     else:
