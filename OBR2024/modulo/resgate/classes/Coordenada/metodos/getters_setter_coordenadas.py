@@ -45,7 +45,7 @@ def comArea(self) -> bool:
 
 @comArea.setter
 def comArea(self, valor: bool) -> None:
-    if isinstance(valor, bool):
+    if isinstance(valor, bool) and 2 not in [self._x, self._y] and True not in [self._comArea, self._saida, self._entrada]:
         self._comArea = valor
     else:
         raise ValueError("O valor de comArea deve ser um booleano.")
@@ -69,7 +69,7 @@ def saida(self) -> bool:
 
 @saida.setter
 def saida(self, valor: bool) -> None:
-    if isinstance(valor, bool):
+    if isinstance(valor, bool) and True not in [self._comArea, self._saida, self._entrada]:
         self._saida = valor
     else:
         raise ValueError("O valor de saida deve ser um booleano.")
@@ -81,7 +81,7 @@ def entrada(self) -> bool:
 
 @entrada.setter
 def entrada(self, valor: bool) -> None:
-    if isinstance(valor, bool):
+    if isinstance(valor, bool) and True not in [self._comArea, self._saida, self._entrada]:
         self._entrada = valor
     else:
         raise ValueError("O valor de entrada deve ser um booleano.")

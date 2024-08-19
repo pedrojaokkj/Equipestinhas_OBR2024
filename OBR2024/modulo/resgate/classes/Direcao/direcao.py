@@ -9,11 +9,11 @@ class Direcao:
         '''Cria uma Instancia do objeto
 
         Parameters:
-            valor(str) : Direção para onde o robô aponta ou deve apontar('direita', 'esquerda', 'cima', 'baixo')
+            valor(str) : Direção para onde o robô aponta ou deve apontar('direita', 'esquerda', 'frente', 'tras')
         '''
 
-        if not isinstance(valor, str) or valor.casefold() in ['direita', 'esquerda', 'cima', 'baixo'] == False:
-            raise ValueError("Valor deve ser uma string 'direita', 'esquerda', 'cima', 'baixo'")
+        if not isinstance(valor, str) or valor.casefold() in ['direita', 'esquerda', 'frente', 'tras'] == False:
+            raise ValueError("Valor deve ser uma string 'direita', 'esquerda', 'frente', 'tras'")
         self._valor = valor.casefold()
 
 
@@ -27,6 +27,6 @@ class Direcao:
 
     @valor.setter
     def valor(self, valor):
-        if not isinstance(valor, str) or valor.casefold() in ['direita', 'esquerda', 'cima', 'baixo'] :
-            raise ValueError("Valor deve ser uma string 'direita', 'esquerda', 'cima', 'baixo'"== False)
+        if not isinstance(valor, str) or valor.casefold() in ['direita', 'esquerda', 'frente', 'tras'] == False :
+            raise ValueError("Valor deve ser uma string 'direita', 'esquerda', 'frente', 'tras'")
         self._valor = valor.casefold()

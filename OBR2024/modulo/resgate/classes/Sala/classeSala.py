@@ -3,12 +3,11 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from modulo.robo.robo import robo
-from ..pedacoParede import PedacoDeParede
-from..parede import Parede
-from ....robo.classeRobo import Robo 
-from .funcoesConstrutoras.escanearSala import escanearSala
+from ..robo.classeRobo import Robo 
+from .funcoesConstrutoras.iniciarMapa import iniciarMapa
 from ..Coordenada.coordenada import Coordenada
 from ..Mapa.mapa import Mapa
+
 
 class SalaDeResgate:
 
@@ -19,9 +18,13 @@ class SalaDeResgate:
             robo(Robo): robo que entrou na sala de resgate
         '''
         
-        self._mapa = escanearSala(Mapa())
 
+        self._robo = robo
+        self._mapa = self.iniciarMapa(Mapa())
+
+
+
+    iniciarMapa = iniciarMapa
 
         
-    
     

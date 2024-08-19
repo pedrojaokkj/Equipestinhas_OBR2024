@@ -3,9 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from modulo.robo.robo import robo
-from ..pedacoParede import PedacoDeParede
-from..parede import Parede
-from ....robo.classeRobo import Robo 
+from ..robo.classeRobo import Robo 
 from ..Coordenada.coordenada import Coordenada
 
 
@@ -14,7 +12,7 @@ class Mapa:
         if not isinstance(x, int) or x > 4 or x < 3 :
             raise ValueError("X deve ser um valor entre 3 e 4")
         
-        if not isinstance(y, int) or y > 4 or y < 0 :
+        if not isinstance(y, int) or y > 4 or y < 3 :
             raise ValueError("Y deve ser um valor entre 3 e 4")
         
         if not isinstance(y, int) or x+y not in [6,7] :

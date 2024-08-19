@@ -43,6 +43,8 @@ class Coordenada:
     saida = saida
     entrada = entrada
 
+    
+
 
 
 
