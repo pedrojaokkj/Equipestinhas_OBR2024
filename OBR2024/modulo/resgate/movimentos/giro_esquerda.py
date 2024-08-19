@@ -4,6 +4,10 @@
 #______________________________________________________________________________________________________________________________________
 from ...robo import robo
 
+def giro_esquerda(x:int):
 
-def varredura():
-    print("iniciando varredura")
+    bz = robo.bz
+    n = 90
+
+    print('Giro pra esquerda')
+    bz.turn(n*x)
