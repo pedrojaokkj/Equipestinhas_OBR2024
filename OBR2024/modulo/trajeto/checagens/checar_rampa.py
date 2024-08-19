@@ -30,11 +30,7 @@ def checarRampa():
     print(robo.motorDireito.angle(), robo.motorEsquerdo.angle())
     bz.stop()
 
-    coresD = []
-    coresE = []
     while robo.motorDireito.angle() > -60:
-        coresD.append(robo.sensorCorDireita.color())
-        coresE.append(robo.sensorCorEsquerda.color())
         robo.motorDireito.run(-65)
         robo.motorEsquerdo.run(-65)
 
