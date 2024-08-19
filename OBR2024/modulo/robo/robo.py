@@ -10,8 +10,6 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
-from .classeRobo import Robo
-
 
 
 #______________________________________________________________________________________________________________________________________
@@ -39,9 +37,6 @@ ultrassonicoLado = UltrasonicSensor(Port.S3)
 ultrassonicoFrente = UltrasonicSensor(Port.S4)
 
 
-robo = Robo(250, 200, 210, ev3, bz, 
-            motorDireito, motorEsquerdo, garra, mecanismoDeposito, 
-            sensorCorEsquerda, sensorCorDireita, ultrassonicoLado, ultrassonicoFrente)
 
 
 
