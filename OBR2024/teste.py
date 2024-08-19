@@ -10,7 +10,7 @@ from modulo.trajeto.checagens.confirmaCor import confirmaCor
 
 def teste():
     confirmaCor()
-    print(robo.sensorCorDireita.reflection())
+
 
             
             

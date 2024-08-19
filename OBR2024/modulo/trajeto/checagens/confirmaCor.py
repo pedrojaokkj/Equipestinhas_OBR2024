@@ -40,19 +40,13 @@ def confirmaCor():
 
     robo.bz.stop()
 
-    # Encontra os itens mais comuns
-    verdesD = [cor for cor in corDireita if cor == robo.Color.GREEN]
-    verdesE = [cor for cor in corEsquerda if cor == robo.Color.GREEN]
-
 
     #lógica para o sensor direito
     print('Mais recorrente D: {}'.format(item_mais_repetido(corDireita)))
     contadosD = contar_itens(corDireita)
-    contadosD.sort()
     print('\n')
     print('Direita')
     for quantidade, cor, percentual in contadosD:
-        percentual = (quantidade / len(corDireita)) * 100
         print("Cor: {} Ocorrências: {} Percentual: {:.2f}%".format(cor, quantidade, percentual))
 
     print('\n')
@@ -61,7 +55,6 @@ def confirmaCor():
     print('Mais recorrente E: {}'.format(item_mais_repetido(corEsquerda)))
 
     contadosE = contar_itens(corEsquerda)
-    contadosE.sort()
     print('\n')
     print('Esquerda')
     for quantidade, cor, percentual in contadosE:
@@ -71,8 +64,8 @@ def confirmaCor():
 
 
 
-    corMaisComumDireita = contadosD[0][1]    # Extrai apenas a cor
-    corMaisComumEsquerda = contadosE[0][1]  # Extrai apenas a cor
+    corMaisComumDireita = item_mais_repetido(corDireita)[0]   # Extrai apenas a cor
+    corMaisComumEsquerda = item_mais_repetido(corEsquerda)[0]    # Extrai apenas a cor
 
 
     # Retorna a cor mais comum para ambos os sensores

@@ -19,11 +19,10 @@ def becoOuDoisPretos():
     print("Conferindo Intercecção(beco ou dois pretos)...")
     bz = robo.bz
 
-    rampa = False
-    cores = confirmaCor()
 
-    if rampaCor(cores[2], cores[3], dois=True) == True:
-        rampa = checarRampa()
+
+
+    rampa = checarRampa()
 
     
     if rampa == True:

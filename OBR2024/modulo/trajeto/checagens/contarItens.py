@@ -13,7 +13,7 @@ def contar_itens(lista):
     lista: A lista para analisar.
 
   Returns:
-    Uma lista de tuplas (item, quantidade), onde cada tupla representa um item
+    Uma lista de tuplas (item, quantidade, percentual), onde cada tupla representa um item
     da lista e a quantidade de vezes que ele aparece.
   """
 
@@ -24,4 +24,11 @@ def contar_itens(lista):
     else:
       contagem[item] = 1
 
-  return [(quantidade, item, quantidade/len(lista) * 100) for item, quantidade in contagem.items()]
+
+  # Cria a lista de tuplas (quantidade, item, percentual)
+  resultado = [(quantidade, item, quantidade/len(lista) * 100) for item, quantidade in contagem.items()]
+
+  # Ordena a lista com base na quantidade em ordem decrescente
+  resultado.sort(key=lambda x: x[0], reverse=True)
+
+  return resultado

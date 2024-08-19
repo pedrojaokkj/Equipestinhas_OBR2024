@@ -5,7 +5,7 @@
 
 from ..Direcao.direcao import Direcao
 from ..Coordenada.coordenada import Coordenada
-from .metodos import RoboGettersSetters
+from .metodos.getters_setters_robo import RoboGettersSetters 
 
 
 class Robo(RoboGettersSetters):

@@ -5,7 +5,7 @@
 from ...robo import robo
 
 
-def rampaCor(infoDir : list, infoEsq : list, sensorEscuro : robo.ColorSensor = robo.sensorCorDireita, dois = False):
+def rampaCor(infoDir : list[tuple], infoEsq : list[tuple], sensorEscuro : robo.ColorSensor = robo.sensorCorDireita):
     '''Recebe listas com leituras dos sensores de cor, e retorna se existe a possibilidade de o robo estar em uma rampa
 
     Args:
@@ -21,26 +21,11 @@ def rampaCor(infoDir : list, infoEsq : list, sensorEscuro : robo.ColorSensor = r
     '''
 
     rampa = False
+    vezesE, colorsE, percentualE = zip(*infoEsq)
+    vezesD, colorsD, percentualD = zip(*infoDir)
 
 
-    if dois == True:
-
-        if None in infoDir or None in infoEsq:
-            rampa = True
-
-        if infoEsq[0][1] == robo.Color.BLUE or infoDir[0][1] == robo.Color.BLUE:
-            rampa = True
-
-        if robo.sensorCorDireita.reflection() > 15 or robo.sensorCorDireita.reflection() > 15:
-            rampa = True
-
-        
-
-
-
-
-    elif sensorEscuro == robo.sensorCorDireita:
-        vezesE, colorsE, percentualE = infoEsq
+    if sensorEscuro == robo.sensorCorDireita:
 
         if robo.Color.WHITE not in colorsE or percentualE[colorsE[robo.Color.WHITE]] < 10:
             rampa = True
@@ -52,7 +37,7 @@ def rampaCor(infoDir : list, infoEsq : list, sensorEscuro : robo.ColorSensor = r
             rampa = True
 
     else:
-        vezesD, colorsD, percentualD = infoDir
+        
         if robo.Color.WHITE not in colorsD or percentualD[colorsD[robo.Color.WHITE]] < 10:
             rampa = True
 
