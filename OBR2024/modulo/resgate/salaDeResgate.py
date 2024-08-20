@@ -2,16 +2,19 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from ..robo.robo import robo
-from .classes.classeSala import SalaDeResgate
-from ..robo.classeRobo import Robo
+from ..robo import robo
+from .classes.Sala.classeSala import SalaDeResgate
+from .classes.robo.classeRobo import Robo
 
 
 # Execução do Resgate
 def resgate():
-    print("Alinhando...")
-    #alinhar
+    robot = Robo(robo.ev3(), robo.bz(), robo.
+            motorDireito(), robo.motorEsquerdo(), robo.garra(), robo.mecanismoDeposito(), robo.
+            sensorCorEsquerda(), robo.sensorCorDireita(), robo.ultrassonicoLado(), robo.ultrassonicoFrente())
 
     print("Criando Instância de Sala...")
-    Sala = SalaDeResgate(robo)
+
+    sala = SalaDeResgate(robot)
+
 

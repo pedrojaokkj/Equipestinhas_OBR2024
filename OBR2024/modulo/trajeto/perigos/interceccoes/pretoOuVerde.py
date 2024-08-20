@@ -7,6 +7,8 @@ from ...checagens.confirmaCor import confirmaCor
 from .preto import preto 
 from .verde import verde
 from ...checagens.checar_rampa import checarRampa
+from ...checagens.rampaCor import rampaCor
+from ...checagens.alinhar import alinhar
 
 
 
@@ -18,15 +20,27 @@ def pretoOuVerde(sensor:robo.ColorSensor):
     '''
 
     robo.bz.stop()
+    if sensor == robo.sensorCorDireita:
+        sensor2 = robo.sensorCorEsquerda
+    else:
+        sensor2 = robo.sensorCorDireita
 
     if sensor.reflection() <= 14:
 
-        if checarRampa() == True:
+        rampa = False
+        cores = confirmaCor()
+
+        if rampaCor(cores[2], cores[3], sensorEscuro=sensor ) == True:
+
+            rampa = checarRampa()
+
+        if rampa == True:
+
             robo.bz.straight(65)
+            alinhar()
+
 
         else:
-            cores = confirmaCor()
-
 
             if sensor == robo.sensorCorDireita:
 
@@ -49,18 +63,8 @@ def pretoOuVerde(sensor:robo.ColorSensor):
 
             else:
                 robo.bz.straight(-30)
-                while robo.sensorCorEsquerda.reflection() > 15:
-                    robo.bz.drive(0, 40)
-
-                robo.bz.stop()
-
-                while robo.sensorCorEsquerda.reflection() <= 15:
-                    robo.bz.drive(0, -40)
-
-                robo.bz.stop()
-
-                robo.bz.turn(-7)
-            
+                alinhar()
+                
 
 
     else:

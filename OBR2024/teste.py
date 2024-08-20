@@ -10,49 +10,8 @@ from modulo.trajeto.checagens.confirmaCor import confirmaCor
 
 
 def teste():
-        bz = robo.bz
-
-        bz.straight(-80)
-        # se ajusta
-        if robo.sensorCorDireita.reflection() > 98 and robo.sensorCorEsquerda.reflection() > 98:
-                print("indo para x:1")
-                bz.straight(190)
-
-
-
-        
-
-
-
-
-
-
-
-        
-        
-
-
-
-
-
-
-
-
-
-                
-                
-                        
-        
-        
-      
-        
-        
-
-
-
-
-    
-
+    confirmaCor()
+    print(robo.sensorCorDireita.reflection())
 
             
             

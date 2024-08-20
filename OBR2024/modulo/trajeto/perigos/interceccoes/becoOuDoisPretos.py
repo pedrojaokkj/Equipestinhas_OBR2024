@@ -8,6 +8,8 @@ from .doisPretos import doisPretos
 from .becoSemSaida import becoSemSaida
 from .verde import verde
 from ...checagens.checar_rampa import checarRampa
+from ...checagens.rampaCor import rampaCor
+from ...checagens.alinhar import alinhar
 
 
 def becoOuDoisPretos():
@@ -17,28 +19,25 @@ def becoOuDoisPretos():
 
     print("Conferindo Intercecção(beco ou dois pretos)...")
     bz = robo.bz
+
+
+
+
+    rampa = checarRampa()
+
     
-    if checarRampa() == True:
+    if rampa == True:
         bz.straight(65)
+        alinhar()
 
     else:
-        bz.straight(-40)
+        bz.straight(-30)
 
         
 
         #alinhar o robô
 
-        while robo.sensorCorEsquerda.reflection() > 15:
-            robo.bz.drive(0, 40)
-
-        robo.bz.stop()
-
-        while robo.sensorCorEsquerda.reflection() <= 15:
-            robo.bz.drive(0, -40)
-
-        robo.bz.stop()
-
-        bz.turn(-7)
+        alinhar()
 
         robo.bz.reset()
 
@@ -52,12 +51,14 @@ def becoOuDoisPretos():
 
 
         cores = confirmaCor()
+        
+        vezesE, colorsE, percentualE = zip(*cores[2])
+        vezesD, colorsD, percentualD = zip(*cores[3]) 
 
         if cores[:2] == (robo.Color.BLACK, robo.Color.BLACK):
             doisPretos()
         elif cores[:2] == (robo.Color.GREEN, robo.Color.GREEN):
             becoSemSaida()
-        elif cores[:2] == (robo.Color.BLACK, robo.Color.GREEN):
-            verde(robo.sensorCorDireita)
-        elif cores[:2] == (robo.Color.GREEN, robo.Color.BLACK):
-            verde(robo.sensorCorEsquerda)
+        else:
+            bz.straight(-30)
+            alinhar()
