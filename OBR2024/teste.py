@@ -8,20 +8,48 @@ from modulo.trajeto.perigos.interceccoes.pretoOuVerde import pretoOuVerde
 from modulo.trajeto.perigos.interceccoes.becoOuDoisPretos import becoOuDoisPretos
 from modulo.trajeto.checagens.confirmaCor import confirmaCor
 
+
 def teste():
-    bz = robo.bz
-    bz.settings(200)
+        bz = robo.bz
 
-    robo.garra.run_time(-1000,2000)
-    bz.straight(30)
-    bz.straight(-30)
-    robo.garra.run_time(800,500)
-    robo.garra.run_time(-1000,500)
+        bz.straight(-80)
+        # se ajusta
+        if robo.sensorCorDireita.reflection() > 98 and robo.sensorCorEsquerda.reflection() > 98:
+                print("indo para x:1")
+                bz.straight(190)
 
-    robo.garra.run_time(350,2000)
-    robo.wait(1000)
-    robo.garra.run_angle(-1000,65)
-    robo.garra.run_time(1000,2000)
+
+
+        
+
+
+
+
+
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+                
+                
+                        
+        
+        
+      
+        
+        
+
+
+
 
     
 
