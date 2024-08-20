@@ -2,13 +2,15 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from modulo.robo.robo import robo
+from modulo.robo import robo 
+from ..Direcao.direcao import Direcao
 from .metodos.getters_setter_coordenadas import x, y, posicao, comArea, explorada, saida, entrada
+
 
 class Coordenada:
 
 
-    def __init__(self, x:int, y:int, comArea : bool = False, explorada : bool = False, saida : bool = False, entrada = False) -> None:
+    def __init__(self, x:int = 0, y:int  = 0, comArea : bool = False, explorada : bool = False, saida : list[bool, Direcao] = [False, None], entrada = False) -> None:
         '''Cria uma Instancia do objeto
 
         Parameters:

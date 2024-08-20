@@ -33,6 +33,9 @@ def segueLinha():
         elif sensorE.color() == Color.GREEN:    # e se o sensor esquerdo ler verde
             pretoOuVerde(sensorE)
 
+        else:
+            robo.bz.drive(40,0)            
+
 
 
 
@@ -49,6 +52,9 @@ def segueLinha():
 
         elif sensorE.color() == Color.GREEN:    # e se o sensor esquerdo ler verde
             becoOuDoisPretos()
+
+        else:
+            robo.bz.drive(40,0)            
     
 
 
@@ -66,3 +72,11 @@ def segueLinha():
 
         elif sensorE.color() == Color.GREEN:    # e se o sensor esquerdo ler verde
             becoOuDoisPretos()
+    
+        else:
+            robo.bz.drive(40,0)
+        
+
+
+    else:
+        robo.bz.drive(40,0)

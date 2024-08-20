@@ -2,7 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from modulo.robo.robo import robo
+from modulo.robo import robo
 from ..robo.classeRobo import Robo 
 from ..Coordenada.coordenada import Coordenada
 
@@ -18,7 +18,7 @@ class Mapa:
         if not isinstance(y, int) or x+y not in [6,7] :
             raise ValueError("A sala tem tamanho 3x3, 4x3, ou 3x4")   
 
-        self.coordenadas: list[list[Coordenada]] = [[Coordenada(coluna + 1, linha + 1) for linha in range(y)] for coluna in range(x)]
+        self.coordenadas = [[Coordenada(coluna + 1, linha + 1) for linha in range(y)] for coluna in range(x)]
 
 
     

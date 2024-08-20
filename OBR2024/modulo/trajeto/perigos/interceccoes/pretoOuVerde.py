@@ -8,6 +8,7 @@ from .preto import preto
 from .verde import verde
 from ...checagens.checar_rampa import checarRampa
 from ...checagens.rampaCor import rampaCor
+from ...checagens.alinhar import alinhar
 
 
 
@@ -36,6 +37,7 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         if rampa == True:
 
             robo.bz.straight(65)
+            alinhar()
 
 
         else:
@@ -61,17 +63,7 @@ def pretoOuVerde(sensor:robo.ColorSensor):
 
             else:
                 robo.bz.straight(-30)
-                while robo.sensorCorEsquerda.reflection() > 15:
-                    robo.bz.drive(0, 40)
-
-                robo.bz.stop()
-
-                while robo.sensorCorEsquerda.reflection() <= 15:
-                    robo.bz.drive(0, -40)
-
-                robo.bz.stop()
-
-                robo.bz.turn(-7)
+                alinhar()
                 
 
 
