@@ -37,8 +37,6 @@ def preto(sensor:robo.ColorSensor):
 
 
         print("virar")
-        while sensor.reflection() <= 15:
-            robo.bz.drive(40, 0)
 
         robo.bz.stop()
         robo.bz.straight(40)

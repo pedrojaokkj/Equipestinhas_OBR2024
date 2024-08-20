@@ -2,7 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from modulo.robo.robo import robo
+from modulo.robo import robo
 from ..robo.classeRobo import Robo
 from .funcoesConstrutoras.iniciarMapa import iniciarMapa
 from ..Coordenada.coordenada import Coordenada
@@ -18,10 +18,10 @@ class SalaDeResgate:
             robo(Robo): robo que entrou na sala de resgate
         '''
         
-        self._entrada : list[Coordenada, Direcao] = [Coordenada(x = 0, y=1), Direcao('tras')]
-        self._saida : list[Coordenada, Direcao] = [Coordenada(x = 0, y=0), Direcao(None)]
-        self._robo : Robo = roboObj
-        self._mapa : Mapa = self.iniciarMapa(Mapa())
+        self._entrada = [Coordenada(x = 0, y=1), Direcao('tras')]
+        self._saida = [Coordenada(x = 0, y=0), Direcao(None)]
+        self._robo = roboObj
+        self._mapa = self.iniciarMapa(Mapa())
         
 
 

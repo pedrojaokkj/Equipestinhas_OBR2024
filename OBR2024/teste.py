@@ -9,7 +9,9 @@ from modulo.trajeto.perigos.interceccoes.becoOuDoisPretos import becoOuDoisPreto
 from modulo.trajeto.checagens.confirmaCor import confirmaCor
 
 def teste():
-    confirmaCor()
+    print(robo.sensorCorDireita.color(), robo.sensorCorDireita.reflection())
+
+    print(robo.sensorCorEsquerda.color(), robo.sensorCorEsquerda.reflection())
 
 
             

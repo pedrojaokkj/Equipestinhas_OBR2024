@@ -18,15 +18,15 @@ def iniciarMapa(self, mapa : Mapa):
         mapa(Mapa) : Mapa da sala iniciada.
     '''
 
-    saida = list[Coordenada, Direcao] = [Coordenada(x = 0, y=0), Direcao(None)]
+    saida = [Coordenada(x = 0, y=0), Direcao(None)]
     
     print("Alinhando...")
     #alinhar
 
     print("Entrando na sala...")
     #ir até ladrilho inicial
-    x_atual : int = 0
-    y_atual : int = 1
+    x_atual = 0
+    y_atual = 1
 
     coordenadas_y_entrada, mapa = escanearFrenteY(self, mapa)
     ateParedeDireita, coordenadas_x_y2, mapa = escanearFrenteX(self, mapa)

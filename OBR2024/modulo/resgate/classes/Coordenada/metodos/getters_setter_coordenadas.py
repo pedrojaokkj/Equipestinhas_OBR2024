@@ -2,7 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from coordenada import Coordenada
+
 from ...Direcao.direcao import Direcao
 
 

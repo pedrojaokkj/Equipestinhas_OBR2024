@@ -5,48 +5,36 @@
 from ...robo import robo
 
 
-def rampaCor(infoDir : list[tuple], infoEsq : list[tuple], sensorEscuro : robo.ColorSensor = robo.sensorCorDireita):
-    '''Recebe listas com leituras dos sensores de cor, e retorna se existe a possibilidade de o robo estar em uma rampa
+def rampaCor(infoDir: list[tuple], infoEsq: list[tuple], sensorEscuro: robo.ColorSensor = robo.sensorCorDireita) -> bool:
+    """Recebe listas com leituras dos sensores de cor, e retorna se existe a possibilidade de o robo estar em uma rampa
 
     Args:
-        infoDir(list) : Lista de leituras do sensor direito
-        infoEsq(list) : Lista de leituras do sensor esquerdo
-        sensorEscuro(ColorSensor) : Em caso de leitura unilateral, deve ser passado o motor que detectou preto ou verde
-        dois(boolean) : Caso seja definido como True a função atribui a verificação aos dois sensores
+        infoDir (list): Lista de leituras do sensor direito
+        infoEsq (list): Lista de leituras do sensor esquerdo
+        sensorEscuro (ColorSensor): Em caso de leitura unilateral, deve ser passado o motor que detectou preto ou verde
 
     Returns:
-        rampa(boolean) : A possibilidade de estar em uma rampa
-    
-    
-    '''
+        bool: A possibilidade de estar em uma rampa (True se sim, False se não)
+    """
 
-    rampa = False
+    if not infoDir or not infoEsq:
+        raise ValueError("Listas de leituras devem ser não vazias")
+
     vezesE, colorsE, percentualE = zip(*infoEsq)
     vezesD, colorsD, percentualD = zip(*infoDir)
 
+    def check_rampa(colors, percentual):
+        if robo.Color.WHITE not in colors or percentual[colors.index(robo.Color.WHITE)] == 100:
+            return False
+        if robo.Color.WHITE not in colors or percentual[colors.index(robo.Color.WHITE)] < 10:
+            return True
+        if None in colors:
+            return True
+        if robo.Color.BLUE in colors and percentual[colors.index(robo.Color.BLUE)] > 50:
+            return True
+        return False
 
     if sensorEscuro == robo.sensorCorDireita:
-
-        if robo.Color.WHITE not in colorsE or percentualE[colorsE[robo.Color.WHITE]] < 10:
-            rampa = True
-
-        if None in colorsE:
-            rampa = True
-        
-        if robo.Color.BLUE in colorsE and percentualE[colorsE[robo.Color.BLUE]] > 50:
-            rampa = True
-
+        return check_rampa(colorsE, percentualE)
     else:
-        
-        if robo.Color.WHITE not in colorsD or percentualD[colorsD[robo.Color.WHITE]] < 10:
-            rampa = True
-
-        if None in colorsD:
-            rampa = True
-        
-        if robo.Color.BLUE in colorsD and percentualD[colorsD[robo.Color.BLUE]] > 50:
-            rampa = True
- 
-
-
-    return rampa
+        return check_rampa(colorsD, percentualD)

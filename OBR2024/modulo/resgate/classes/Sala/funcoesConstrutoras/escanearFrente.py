@@ -9,7 +9,7 @@ from ...Coordenada.coordenada import Coordenada
 
 
 def escanearFrenteY(self, mapa):
-    coordenadas : list[Coordenada] = []
+    coordenadas = [] 
     final = False
     y_atual = 1
     paredes_esquerda = []
@@ -28,7 +28,7 @@ def escanearFrenteY(self, mapa):
 
 
 def escanearFrenteX(self, mapa):
-    coordenadas : list[Coordenada] = []
+    coordenadas = []
     final = False
     y_atual = 2
     andouAteDireita = 0
