@@ -7,11 +7,10 @@ from modulo.trajeto.perigos.interceccoes.preto import preto
 from modulo.trajeto.perigos.interceccoes.pretoOuVerde import pretoOuVerde
 from modulo.trajeto.perigos.interceccoes.becoOuDoisPretos import becoOuDoisPretos
 from modulo.trajeto.checagens.confirmaCor import confirmaCor
+from modulo.trajeto.checagens.alinhar import alinhar
 
 def teste():
-    print(robo.sensorCorDireita.color(), robo.sensorCorDireita.reflection())
-
-    print(robo.sensorCorEsquerda.color(), robo.sensorCorEsquerda.reflection())
+    alinhar()
 
 
             

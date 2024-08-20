@@ -24,7 +24,7 @@ def rampaCor(infoDir: list[tuple], infoEsq: list[tuple], sensorEscuro: robo.Colo
     vezesD, colorsD, percentualD = zip(*infoDir)
 
     def check_rampa(colors, percentual):
-        if robo.Color.WHITE not in colors or percentual[colors.index(robo.Color.WHITE)] == 100:
+        if robo.Color.WHITE in colors and percentual[colors.index(robo.Color.WHITE)] == 100:
             return False
         if robo.Color.WHITE not in colors or percentual[colors.index(robo.Color.WHITE)] < 10:
             return True

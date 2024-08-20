@@ -3,6 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from ....robo import robo
+from ...checagens.alinhar import alinhar
 
 def preto(sensor:robo.ColorSensor):
     '''Segue o protocolo para quando um sensor detecta preto.
@@ -75,23 +76,18 @@ def preto(sensor:robo.ColorSensor):
 
             robo.bz.stop()
 
-            while sensor2.reflection() <= 65:
-                robo.bz.drive(0, -40 * lado)
-
-
-            robo.bz.stop()
-            robo.bz.turn(-6 * lado) 
-            robo.bz.straight(-15)
-            robo.bz.stop()
+            alinhar()
 
         
     #ajusta o robô em caso de invasão leve na linha
     else:
-        
-        robo.bz.stop()
-        while sensor.reflection() < 65:    
-            motor.run(-35)
 
-        motor.stop() 
-        robo.bz.straight(-6)
-        robo.bz.stop()
+
+        alinhar()        
+        # robo.bz.stop()
+        # while sensor.reflection() < 65:    
+        #     motor.run(-35)
+
+        # motor.stop() 
+        # robo.bz.straight(-6)
+        # robo.bz.stop()
