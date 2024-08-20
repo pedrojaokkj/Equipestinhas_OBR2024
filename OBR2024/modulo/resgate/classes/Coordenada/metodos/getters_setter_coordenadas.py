@@ -3,6 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from coordenada import Coordenada
+from ...Direcao.direcao import Direcao
 
 
 
@@ -14,11 +15,11 @@ def x(self) -> int:
 
 @x.setter
 def x(self, valor: int) -> None:
-    if isinstance(valor, int):
+    if isinstance(valor, int) and valor in [1,2,3,4] :
         self._x = valor
         self._posicao = (valor, self._y)  # Atualiza _posicao
     else:
-        raise ValueError("O valor de x deve ser um inteiro.")
+        raise ValueError("O valor de x deve ser um número entre 1 e 4.")
 
 # Getters e Setters para _y
 @property
@@ -27,11 +28,11 @@ def y(self) -> int:
 
 @y.setter
 def y(self, valor: int) -> None:
-    if isinstance(valor, int):
+    if isinstance(valor, int) and valor in [1,2,3,4] :
         self._y = valor
         self._posicao = (self._x, valor)  # Atualiza _posicao
     else:
-        raise ValueError("O valor de y deve ser um inteiro.")
+        raise ValueError("O valor de y deve ser um número entre 1 e 4.")
 
 # Getter para _posicao
 @property
@@ -45,7 +46,7 @@ def comArea(self) -> bool:
 
 @comArea.setter
 def comArea(self, valor: bool) -> None:
-    if isinstance(valor, bool) and 2 not in [self._x, self._y] and True not in [self._comArea, self._saida, self._entrada]:
+    if isinstance(valor, bool) and 2 not in [self._x, self._y] and True not in [self._comArea, self._saida[0], self._entrada]:
         self._comArea = valor
     else:
         raise ValueError("O valor de comArea deve ser um booleano.")
@@ -64,12 +65,12 @@ def explorada(self, valor: bool) -> None:
 
 # Getters e Setters para _saida
 @property
-def saida(self) -> bool:
+def saida(self) -> list[bool, Direcao]:
     return self._saida
 
 @saida.setter
-def saida(self, valor: bool) -> None:
-    if isinstance(valor, bool) and True not in [self._comArea, self._saida, self._entrada]:
+def saida(self, valor: list[bool, Direcao]) -> None:
+    if isinstance(valor, bool) and True not in [self._comArea, self._saida[0]]:
         self._saida = valor
     else:
         raise ValueError("O valor de saida deve ser um booleano.")
@@ -81,7 +82,7 @@ def entrada(self) -> bool:
 
 @entrada.setter
 def entrada(self, valor: bool) -> None:
-    if isinstance(valor, bool) and True not in [self._comArea, self._saida, self._entrada]:
+    if isinstance(valor, bool) and True not in [self._comArea, self._entrada]:
         self._entrada = valor
     else:
         raise ValueError("O valor de entrada deve ser um booleano.")

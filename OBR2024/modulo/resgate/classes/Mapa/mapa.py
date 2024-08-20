@@ -2,7 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from modulo.robo.robo import robo
+from modulo.robo import robo
 from ..robo.classeRobo import Robo 
 from ..Coordenada.coordenada import Coordenada
 
