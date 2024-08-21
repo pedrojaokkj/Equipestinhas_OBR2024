@@ -6,6 +6,7 @@
 from ..Direcao.direcao import Direcao
 from ..Coordenada.coordenada import Coordenada
 from .metodos.getters_setters_robo import RoboGettersSetters 
+from .metodos.virar import virar
 
 
 class Robo(RoboGettersSetters):
@@ -24,4 +25,15 @@ class Robo(RoboGettersSetters):
         self._direcaoAtual = direcaoAtual
         self._coordenadaAtual = coordenadaAtual
 
-# O arquivo `robo.py` importa os getters e setters da classe `RoboGettersSetters`, 
+    virarAte = virar
+
+
+
+
+
+        
+
+
+        
+
+    

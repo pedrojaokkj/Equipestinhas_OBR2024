@@ -21,9 +21,12 @@ def becoOuDoisPretos():
     bz = robo.bz
 
 
+    rampa = False
+    cores = confirmaCor()
 
+    if rampaCor(cores[2], cores[3], dois=True) == True:
 
-    rampa = checarRampa()
+        rampa = checarRampa()
 
     
     if rampa == True:
@@ -41,7 +44,7 @@ def becoOuDoisPretos():
 
         robo.bz.reset()
 
-        while robo.sensorCorEsquerda.reflection() > 15 and robo.sensorCorDireita.reflection() > 15 and robo.bz.distance() <=40:
+        while robo.sensorCorEsquerda.reflection() > 15 and robo.sensorCorDireita.reflection() > 15 and robo.bz.distance() <=35:
             robo.bz.drive(35, 0)
         
         print(robo.sensorCorEsquerda.reflection())
