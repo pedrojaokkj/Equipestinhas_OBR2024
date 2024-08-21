@@ -3,6 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from ....robo import robo
+from ...checagens.alinhar import alinhar
 
 def verde(sensor:robo.ColorSensor):
     '''Vira o Robô de acordo com a marcação verde das intercecções.
@@ -37,13 +38,7 @@ def verde(sensor:robo.ColorSensor):
 
     robo.bz.stop()
 
-    while sensor2.reflection() <= 35:
-        robo.bz.drive(0, -40 * lado)
 
-
-    robo.bz.stop()
-    robo.bz.turn(-5 * lado) 
-    robo.bz.straight(-15)
-    robo.bz.stop()
+    alinhar()
 
     

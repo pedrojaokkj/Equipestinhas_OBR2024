@@ -20,8 +20,7 @@ class SalaDeResgate:
         
         self._entrada = [Coordenada(x = 0, y=1), Direcao('tras')]
         self._saida = [Coordenada(x = 0, y=0), Direcao(None)]
-        self._robo = roboObj
-        self._mapa = self.iniciarMapa(Mapa())
+        self._robo, self._mapa = self.iniciarMapa(roboObj, Mapa())
         
 
 
