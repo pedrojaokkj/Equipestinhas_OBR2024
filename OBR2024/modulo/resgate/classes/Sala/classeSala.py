@@ -20,13 +20,29 @@ class SalaDeResgate:
         
         self._entrada = [Coordenada(x = 0, y=1), Direcao('tras')]
         self._saida = [Coordenada(x = 0, y=0), Direcao(None)]
-        self._robo = roboObj
-        self._mapa = self.iniciarMapa(Mapa())
+        self._robo, self._mapa = self.iniciarMapa(roboObj, Mapa())
         
 
 
 
     iniciarMapa = iniciarMapa
+
+
+    def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
+
+        mapa = self._mapa
+        posicaoAtual = self._robo.coordenadaAtual
+        direcaoAtual = self._robo.direcaoAtual
+        
+        diferencaY = posicaoAtual.y - coordenada.y 
+
+
+        # while posicaoAtual != coordenada or direcaoAtual != direcao:
+
+
+
+
+
 
         
     

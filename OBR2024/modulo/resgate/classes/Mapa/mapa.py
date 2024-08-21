@@ -34,6 +34,7 @@ class Mapa:
             raise ValueError("A sala já tem o valor máximo")
         
         else:
+            print('Adicionando Mais um x')
             self.coordenadas.append([Coordenada(4, i+1) for i in range(3)])
 
 
@@ -46,7 +47,7 @@ class Mapa:
         else:
             for i in range(3):
                 self.coordenadas[i].append(Coordenada(i+1, 4))
-    
+            print('Adicionando Mais um y')
 
 
 
