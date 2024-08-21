@@ -3,6 +3,7 @@
 #Importações
 #______________________________________________________________________________________________________________________________________
 from ....robo import robo
+from modulo.trajeto.checagens.alinhar import alinhar
 
 def becoSemSaida():
     '''Faz o robô dar meia volta, deve ser chamada em caso de beco sem saída
@@ -56,8 +57,10 @@ def becoSemSaida():
     robo.bz.stop()
 
     robo.wait(500)
-
-    robo.motorEsquerdo.run_angle(200,-60)
+    
+    
+    robo.bz.straight(40)
+    alinhar()
                                     
                                     
                                     

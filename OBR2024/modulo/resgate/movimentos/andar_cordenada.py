@@ -7,7 +7,7 @@ from ...robo import robo
 def andar_cordenada(x:int):
     
     bz = robo.bz
-    cm = 150
+    cm = 300
     
     print('Andando uma coordenada')
     print('Direcionando para o meio do ladrilho')
