@@ -2,13 +2,14 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from modulo.robo import robo
 from ...Coordenada.coordenada import Coordenada
+from modulo.robo import robo
 from ...Direcao.direcao import Direcao
+from ...robo.classeRobo import Robo
 from .verificarPadroes import verificar_padroes
 
 
-def andarEscaneandoY(y : 1):
+def andarEscaneandoY(robot : Robo, y):
     print('Escaneando e andando...')
     robo.bz.reset()
     distancia = 0 #adicionar distancia
@@ -19,6 +20,7 @@ def andarEscaneandoY(y : 1):
     parede = False
 
     #add função capturar
+    
 
 
 
@@ -32,7 +34,7 @@ def andarEscaneandoY(y : 1):
         if y == 1 and robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance() or y == 2 and leituras[0] > 380:
 
             print("capturar")
-            #anda um bocado
+            robo.bz.straight(distancia/2)
             #add função capturar
             robo.bz.stop()
             robo.bz.straight(distancia - robo.bz.distance())
@@ -59,6 +61,7 @@ def andarEscaneandoY(y : 1):
 
 
             if parede == False:
+                #checar
                 print('checar parede')
 
             if parede == True:
@@ -68,7 +71,8 @@ def andarEscaneandoY(y : 1):
 
                 if robo.sensorCorDireita.reflection() < 15:
                     saida = (True, Direcao('Frente'))
-                    #volta até o meio
+                    robo.bz.straight(-robo.bz.distance())
+                    ultima = True
 
                 elif variavel:
 

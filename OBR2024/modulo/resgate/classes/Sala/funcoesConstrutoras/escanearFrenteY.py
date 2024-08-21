@@ -39,7 +39,7 @@ def escanearFrenteY(robot : Robo, mapa):
             final = True
 
 
-        proximoy = andarEscaneandoY(y_atual)
+        proximoy = andarEscaneandoY(robot, y_atual)
 
         if proximoy == None:
             final = True
@@ -47,7 +47,7 @@ def escanearFrenteY(robot : Robo, mapa):
         coordenadas.append(proximoy)
         
 
-        if proximoy.comArea() == True:
+        if proximoy.comArea == True:
             final = True
 
         y_atual += 1

@@ -27,5 +27,22 @@ class SalaDeResgate:
 
     iniciarMapa = iniciarMapa
 
+
+    def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
+
+        mapa = self._mapa
+        posicaoAtual = self._robo.coordenadaAtual
+        direcaoAtual = self._robo.direcaoAtual
+        
+        diferencaY = posicaoAtual.y - coordenada.y 
+
+
+        # while posicaoAtual != coordenada or direcaoAtual != direcao:
+
+
+
+
+
+
         
     

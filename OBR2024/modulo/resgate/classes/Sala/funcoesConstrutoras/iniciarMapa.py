@@ -45,8 +45,8 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
 
     for i, coordenada in enumerate(coordenadas_x_y2):
         coordenada.x = len(coordenadas_x_y2) - i
-        y = coordenada.y() - 1
-        x = coordenada.x() - 1 
+        y = coordenada.y - 1
+        x = coordenada.x - 1 
 
         mapa.coordenadas[x][y] = coordenada
 
@@ -54,8 +54,8 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
      
     for coordenada in coordenadas_y_entrada:
         coordenada.x = len(coordenadas_x_y2) - ateParedeDireita 
-        y = coordenada.y() - 1
-        x = coordenada.x() - 1
+        y = coordenada.y - 1
+        x = coordenada.x - 1
 
         mapa.coordenadas[x][y] = coordenada
 

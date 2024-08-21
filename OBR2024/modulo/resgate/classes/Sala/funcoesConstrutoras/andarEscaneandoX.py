@@ -17,6 +17,7 @@ def andarEscaneandoX(direcao : Direcao):
     # add função de captura
 
     distancia =  0 #atribuir
+    
     if robo.ultrassonicoFrente.distance() < 65:
         #checar parede
         print('Checando parede...')
