@@ -30,7 +30,7 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         rampa = False
         cores = confirmaCor()
 
-        if rampaCor(cores[2], cores[3], sensorEscuro=sensor ) == True:
+        if rampaCor(cores[2], cores[3], sensorEscuro=sensor) == True:
 
             rampa = checarRampa()
 

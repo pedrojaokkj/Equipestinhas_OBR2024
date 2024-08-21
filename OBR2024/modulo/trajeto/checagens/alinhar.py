@@ -6,6 +6,7 @@ from ...robo import robo
 
 
 def alinhar():
+    print('Alinhando...')
 
     robo.bz.reset()
 
@@ -18,9 +19,6 @@ def alinhar():
     print('Angulo1 :', angulo1)
     robo.bz.turn(-angulo1)
     
-    print('Angulo1 :', robo.bz.angle())
-
-
 
 
     while robo.sensorCorDireita.reflection() > 65:
@@ -32,15 +30,18 @@ def alinhar():
     print('Angulo2 :', angulo2)
     robo.bz.turn( -angulo2)
 
-    print('Angulo1 :', robo.bz.angle())
-
 
 
     diferenca = angulo2 + angulo1
 
     print("diferenca : ", diferenca)
+    if angulo1 == 0 and angulo2 == 0:
+        print('Rampa')
+        robo.bz.straight(65)
+        alinhar()
 
-    if 0 in [angulo1, angulo2]:
+
+    elif 0 in [angulo1, angulo2]:
         robo.bz.turn(-diferenca/2)
         robo.bz.straight(-diferenca)
         robo.bz.turn(diferenca * 1)
@@ -52,6 +53,8 @@ def alinhar():
         robo.bz.turn(-diferenca/2)
         robo.bz.straight(-10)
         robo.bz.turn(diferenca * 1.2)
+
+
 
 
     robo.bz.stop()

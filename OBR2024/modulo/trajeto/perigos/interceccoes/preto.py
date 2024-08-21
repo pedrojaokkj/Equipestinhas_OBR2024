@@ -91,3 +91,6 @@ def preto(sensor:robo.ColorSensor):
         # motor.stop() 
         # robo.bz.straight(-6)
         # robo.bz.stop()
+
+
+    return

@@ -5,7 +5,31 @@
 from ...robo import robo
 
 
-def rampaCor(infoDir: list[tuple], infoEsq: list[tuple], sensorEscuro: robo.ColorSensor = robo.sensorCorDireita) -> bool:
+def check_rampa(colors, percentual):
+    if robo.Color.WHITE in colors and percentual[colors.index(robo.Color.WHITE)] == 100:
+        return False
+    if robo.Color.WHITE not in colors or percentual[colors.index(robo.Color.WHITE)] < 10:
+        return True
+    if None in colors:
+        return True
+    if robo.Color.BLUE in colors and percentual[colors.index(robo.Color.BLUE)] > 50:
+        return True
+    return False
+
+
+
+def check_rampa2(cE, cD, pE, pD):
+    if None in cE or None in cD:
+        return True
+    if robo.Color.BLUE in cE and pE[cE.index(robo.Color.BLUE)] > 40 or robo.Color.BLUE in cD and pD[cD.index(robo.Color.BLUE)] > 40:
+        return True
+    
+    return False
+
+
+
+
+def rampaCor(infoEsq: list[tuple], infoDir: list[tuple], sensorEscuro: robo.ColorSensor = robo.sensorCorDireita, dois : bool= False) -> bool:
     """Recebe listas com leituras dos sensores de cor, e retorna se existe a possibilidade de o robo estar em uma rampa
 
     Args:
@@ -23,18 +47,15 @@ def rampaCor(infoDir: list[tuple], infoEsq: list[tuple], sensorEscuro: robo.Colo
     vezesE, colorsE, percentualE = zip(*infoEsq)
     vezesD, colorsD, percentualD = zip(*infoDir)
 
-    def check_rampa(colors, percentual):
-        if robo.Color.WHITE in colors and percentual[colors.index(robo.Color.WHITE)] == 100:
-            return False
-        if robo.Color.WHITE not in colors or percentual[colors.index(robo.Color.WHITE)] < 10:
-            return True
-        if None in colors:
-            return True
-        if robo.Color.BLUE in colors and percentual[colors.index(robo.Color.BLUE)] > 50:
-            return True
-        return False
 
-    if sensorEscuro == robo.sensorCorDireita:
-        return check_rampa(colorsE, percentualE)
+
+    if dois == True:
+        retorno = check_rampa2(colorsE, colorsD, percentualE ,percentualD)
     else:
-        return check_rampa(colorsD, percentualD)
+        if sensorEscuro == robo.sensorCorDireita:
+            retorno = check_rampa(colorsE, percentualE)
+        else:
+            retorno = check_rampa(colorsD, percentualD)
+
+    return retorno
+
