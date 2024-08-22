@@ -12,14 +12,14 @@ from .verificarPadroes import verificar_padroes
 def andarEscaneandoY(robot : Robo, y):
     print('Escaneando e andando...')
     robo.bz.reset()
-    distancia = 0 #adicionar distancia
+    distancia = 300
     leituras = []
     saida = (False, Direcao(None))
     area = False
     ultima = False
-    parede = False
+    parede = None
 
-    #add função capturar
+    robot.capturar()
     
 
 
@@ -35,7 +35,7 @@ def andarEscaneandoY(robot : Robo, y):
 
             print("capturar")
             robo.bz.straight(distancia/2)
-            #add função capturar
+            robot.capturar()
             robo.bz.stop()
             robo.bz.straight(distancia - robo.bz.distance())
             
@@ -49,8 +49,8 @@ def andarEscaneandoY(robot : Robo, y):
 
             else:
                 print("capturar")
-                #anda um bocado
-                #add função capturar
+                robo.bz.straight(distancia/2)
+                robot.capturar()
                 robo.bz.stop()
                 robo.bz.straight(distancia - robo.bz.distance())
 
@@ -60,11 +60,13 @@ def andarEscaneandoY(robot : Robo, y):
         elif y == 3:
 
 
-            if parede == False:
-                #checar
+            if parede == None:
+                parede = robot.checarParedeouArea()
+                
                 print('checar parede')
 
             if parede == True:
+                robo.bz.straight(-robo.bz.distance())
                 ultima = True
 
             elif len(leituras) > 25:
@@ -76,13 +78,15 @@ def andarEscaneandoY(robot : Robo, y):
 
                 elif variavel:
 
-                    #verificar se area
+                    area = robot.checarParedeouArea()
+                    if area == True:
+                        robo.bz.straight(-robo.bz.distance())
                     print('verificando area')
 
                 elif robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
                     print("capturar")
-                    #anda um bocado
-                    #add função capturar
+                    robo.bz.straight(distancia/2)
+                    robot.capturar()
                     robo.bz.stop()
                     robo.bz.straight(distancia - robo.bz.distance())                    
 

@@ -14,5 +14,5 @@ from modulo.robo import robo
 
 
 # # Chamada da Função de Testes
-# if __name__ == "__main__":
-#     teste()
+if __name__ == "__main__":
+    teste()
