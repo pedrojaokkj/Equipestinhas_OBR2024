@@ -15,14 +15,17 @@ from ..metodos.curvaPara import curvaPara
 
 
 
-def calcularDistancia(self, coordenadaFinal : Coordenada, direcaoFinal : Direcao, mapa : Mapa, cooredenadaAtual:Coordenada, direcaoAtual:Direcao, rota : list = []):
+def calcularDistancia(coordenadaFinal : Coordenada, direcaoFinal : Direcao, mapa : Mapa, cooredenadaAtual:Coordenada, direcaoAtual:Direcao, rota : list = []):
     diferencaY = coordenadaFinal.y - cooredenadaAtual.y
     diferencaX = coordenadaFinal.x - cooredenadaAtual.x 
 
 
     if diferencaX == 0 and diferencaY == 0 and direcaoAtual == direcaoFinal:
         rota = ['Cabou XD!']
-        
+
+
+    elif diferencaX == 0 and diferencaY == 0 and direcaoAtual != direcaoFinal:
+        rota = [direcaoFinal, 'Cabou XD!']
     
     else:
         p1 = cooredenadaAtual
@@ -30,29 +33,39 @@ def calcularDistancia(self, coordenadaFinal : Coordenada, direcaoFinal : Direcao
         possibilidades = []
         
         if diferencaY != 0:
-            p1 = mapa.coordenadas[cooredenadaAtual.x - 1][cooredenadaAtual.y - 1 + (diferencaY/abs(diferencaY))]
+            p1 = mapa.coordenadas[cooredenadaAtual.x - 1][cooredenadaAtual.y - 1 + int(diferencaY/abs(diferencaY))]
             if isinstance(p1, Coordenada): 
                 possibilidades.append(p1)
 
 
+
+
         if diferencaX != 0:
-            p2 = mapa.coordenadas[cooredenadaAtual.x - 1 + (diferencaY/abs(diferencaY))][cooredenadaAtual.y - 1]
+            p2 = mapa.coordenadas[cooredenadaAtual.x - 1 + int(diferencaX/abs(diferencaX))][cooredenadaAtual.y - 1]
             if isinstance(p2, Coordenada):
                 possibilidades.append(p2)
+
+
+
+
+            
+        
+
 
 
         caminhos = []
 
         passo = 0
         for p in possibilidades:
-            r = []
             curvaNecessaria = curvaPara(direcaoAtual, cooredenadaAtual, p)
-            if curvaPara(direcaoAtual, cooredenadaAtual, p) == False:
+            if curvaNecessaria == False:
                 passo = 'seguir'
             else: 
                 passo = curvaNecessaria
 
-            caminhos.append(self.calcularDistancia(coordenadaFinal, direcaoFinal, mapa, p, curvaNecessaria))
+
+
+            caminhos.append(calcularDistancia(coordenadaFinal, direcaoFinal, mapa, p, curvaNecessaria))
 
 
         rota = min(caminhos, key=len)
@@ -84,8 +97,8 @@ def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
         return retorno            
 
     
-    mapaRestringido.coordenadas = [['Coordenada Restringida' if restricao(coordenada, mapa) else coordenada for coordenada in linha] for linha in mapa ]
-    intruncoes = self.calcularDistancia(coordenada, direcao, mapaRestringido, posicaoAtual, direcaoAtual)
+    mapaRestringido.coordenadas = [['Coordenada Restringida' if restricao(coordenada, mapa) else coordenada for coordenada in linha] for linha in mapaRestringido.coordenadas]
+    intruncoes = calcularDistancia(coordenada, direcao, mapaRestringido, posicaoAtual, direcaoAtual)
 
     for passo in intruncoes:
         if isinstance(passo, Direcao):
