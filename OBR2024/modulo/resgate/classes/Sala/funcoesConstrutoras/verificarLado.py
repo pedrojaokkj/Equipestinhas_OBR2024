@@ -16,9 +16,9 @@ def verificarLado() -> bool:
     parede = False
     leituras = []
 
-    robo.bz.reset
+    robo.bz.reset()
     #vai pra frente armazenando as leituras
-    while robo.bz.distance() > -30:
+    while robo.bz.distance() < 30:
         robo.bz.drive(20,0)
         leituras.append(robo.ultrassonicoLado.distance())
         robo.wait(1)
@@ -30,7 +30,7 @@ def verificarLado() -> bool:
 
 
     #volta armazenando as leituras
-    while robo.bz.distance() < -distancia:
+    while robo.bz.distance() > -distancia:
         robo.bz.drive(-20,0)
         leituras.append(robo.ultrassonicoLado.distance())
         robo.wait(1)
@@ -38,7 +38,9 @@ def verificarLado() -> bool:
     robo.bz.stop()
 
     media = sum(leituras) / len(leituras)
-    parede = media < 50
+    parede = media < 100
     print('Parede : ', parede)
+
+    robo.bz.turn(2)
 
     return parede

@@ -13,16 +13,15 @@ from .andarEscaneandoX import andarEscaneandoX
 def escanearFrenteX(robot : Robo, mapa):
     coordenadas = []
     final = False
-    y_atual = 2
     andouAteDireita = 0
 
     while True:
         
-        coordenadaDireita, final = andarEscaneandoX(Direcao('direita'))
+        coordenadaDireita, final = andarEscaneandoX(robot, Direcao('direita'))
         if final == True:
             ultimaDireita = coordenadaDireita
             coordenadas.append(ultimaDireita)
-            # add virar até esquerda
+            robot.virarAte(Direcao('esquerda'))
             if ultimaDireita.saida != (True, Direcao('direita')):
                 print('Se alinhar na parede')
                 #implementar
@@ -33,7 +32,7 @@ def escanearFrenteX(robot : Robo, mapa):
 
     while True:
         
-        coordenada, final = andarEscaneandoX(Direcao('esquerda'))
+        coordenada, final = andarEscaneandoX(robot, Direcao('esquerda'))
 
         if final == True:
             robot.virarAte(Direcao('direita'))

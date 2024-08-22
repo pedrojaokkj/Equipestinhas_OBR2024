@@ -7,7 +7,6 @@ from .....robo import robo
 
 def captura():
     bz = robo.bz
-    bz.settings(200)
     bz.stop()
 
     robo.mecanismoDeposito.run_time(-1000,1000)

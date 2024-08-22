@@ -7,6 +7,7 @@ from ..Coordenada.coordenada import Coordenada
 from ..Mapa.mapa import Mapa
 from ..Direcao.direcao import Direcao
 from .funcoesConstrutoras.iniciarMapa import iniciarMapa
+from .metodos.andar_cordenada import andar_cordenada
 
 from .metodos.enviarRobo import enviarRobo
 
@@ -21,18 +22,22 @@ class SalaDeResgate:
         
         self._entrada = [Coordenada(x = 0, y=1), Direcao('tras')]
         self._saida = [Coordenada(x = 0, y=0), Direcao(None)]
-        self._robo, self._mapa = self.iniciarMapa(roboObj, Mapa())
+        self._robo, self._mapa = iniciarMapa(self, roboObj, Mapa())
         
 
 
+    #atribuição das funções da classe
 
-    iniciarMapa = iniciarMapa
-    enviarRobo = enviarRobo
+    def enviarRobo(self, coordenada : Coordenada, direcao : Direcao) -> None:
+        enviarRobo(self, coordenada, direcao)
 
+    def andarCordenada(self) -> bool:
+        andar_cordenada(self)
 
     def encontrarAreas():
         print('Procurando áreas...')
-        
+
+            
 
 
 

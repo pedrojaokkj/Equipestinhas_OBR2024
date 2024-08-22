@@ -28,12 +28,15 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
 
 
     print("Entrando na sala...")
-    #ir até ladrilho inicial
+    print('Indo para y:1')
+    robo.bz.straight(100)
+    robot.capturar()
+    robo.bz.straight(135)
+    
 
+    coordenadas_y_entrada, mapa = escanearFrenteY(robot, mapa)
 
-    coordenadas_y_entrada, mapa = escanearFrenteY(robo, mapa)
-
-    ateParedeDireita, coordenadas_x_y2, mapa = escanearFrenteX(robo, mapa)
+    ateParedeDireita, coordenadas_x_y2, mapa = escanearFrenteX(robot, mapa)
     if len(coordenadas_x_y2) == 4:
         mapa.adcionarX()
 
@@ -69,8 +72,16 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
 
     #centralizar e finalizar
 
-    #andarAté(x = 2, y = 2, direção, direita)
 
+    #andarAté(x = 2, y = 2, direção, direita)
+    print("Centralizando...")
+
+    robo.bz.straight(280)
+    robot.capturar()
+
+    print("Centralizado x = 2 y = 2")
+
+    robot.coordenadaAtual = mapa.coordenadas[1][1]
 
 
     self._saida = saida

@@ -8,7 +8,7 @@ from ..Coordenada.coordenada import Coordenada
 from .metodos.getters_setters_robo import RoboGettersSetters 
 from .metodos.virar import virar
 from .metodos.capturar import captura
-from .metodos.andar_cordenada import andar_cordenada
+
 from .metodos.checarParedeouArea import checarParedeouArea
 
 
@@ -30,12 +30,14 @@ class Robo(RoboGettersSetters):
         self._coordenadaAtual = coordenadaAtual
 
     #atribuição das funções da classe
-    virarAte = virar
-    capturar = captura
-    andarCoordenada = andar_cordenada
-    checarParedeouArea = checarParedeouArea
+    def virarAte(self, direcao: Direcao) -> None:
+        virar(self, direcao)
 
+    def capturar(self) -> None:
+        captura()
 
+    def checarParedeouArea(self) -> bool:
+        return checarParedeouArea()
 
 
 

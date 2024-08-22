@@ -66,9 +66,6 @@ def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
     mapa = self._mapa
     posicaoAtual = self._robo.coordenadaAtual
     direcaoAtual = self._robo.direcaoAtual
-    
-    diferencaY = posicaoAtual.y - coordenada.y 
-    diferencaX = posicaoAtual.x - coordenada.x
 
     
     mapaRestringido = Mapa(x = len(mapa.coordenadas), y = len(mapa.coordenadas[0]))
@@ -95,7 +92,7 @@ def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
             self._robo.virarAte(passo)
 
         elif passo == 'seguir':
-            self._robo #add mover
+            self.andar_cordenada()
     
         else:
             print('Chegou')

@@ -30,28 +30,33 @@ def escanearFrenteY(robot : Robo, mapa):
     final = False
     y_atual = 1
     paredes_esquerda = []
-
+    paredes_esquerda.append(verificarLado())
     #Vai até o final do eixo X da entrada atualizando os valores
-    while final == False:
+    while True:
 
         if len(coordenadas) == 4:
             mapa.adcionarY()
-            final = True
+            break
 
 
         proximoy = andarEscaneandoY(robot, y_atual)
 
         if proximoy == None:
-            final = True
+            break
+
 
         coordenadas.append(proximoy)
         
 
-        if proximoy.comArea == True:
-            final = True
+        if proximoy.comArea == True or proximoy.saida == (True, Direcao('Frente')):
+            break
 
         y_atual += 1
+        print('y atual == ',y_atual)
         paredes_esquerda.append(verificarLado())
+    
+
+    print('Escanear Y concluido')
     
 
 
@@ -72,13 +77,20 @@ def escanearFrenteY(robot : Robo, mapa):
 
 
 
+
+    print('Voltando')
+    robot.virarAte(Direcao('tras'))
     paredes_direita = []
     paredes_direita.append(verificarLado())
-    #virar 180
+
     while y_atual != 2:
         #andar 1 ladrilho
+        distancia = 280
+        robo.bz.straight(distancia)
         paredes_direita.append(verificarLado)
         y_atual -= 1
+
+    print('y=2')
     
     if [coordenada.saida for coordenada in coordenadas].count((True, Direcao('esquerda'))) == 0:
 
@@ -87,7 +99,7 @@ def escanearFrenteY(robot : Robo, mapa):
 
 
 
-    # virar para a direita
+    robot.virarAte(Direcao('direita'))
     
     return coordenadas, mapa
 

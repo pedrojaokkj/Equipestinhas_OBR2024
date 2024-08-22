@@ -5,16 +5,18 @@
 from ..robo import robo
 from .classes.Sala.classeSala import SalaDeResgate
 from .classes.robo.classeRobo import Robo
+from .classes.Coordenada.coordenada import Coordenada
+from .classes.Direcao.direcao import Direcao
 
 
 # Execução do Resgate
 def resgate():
-    robot = Robo(robo.ev3(), robo.bz(), robo.
-            motorDireito(), robo.motorEsquerdo(), robo.garra(), robo.mecanismoDeposito(), robo.
-            sensorCorEsquerda(), robo.sensorCorDireita(), robo.ultrassonicoLado(), robo.ultrassonicoFrente())
+    robot = Robo()
 
     print("Criando Instância de Sala...")
 
     sala = SalaDeResgate(robot)
+
+    sala.enviarRobo(coordenada = Coordenada(x = 3, y =1), direcao= Direcao('tras'))
 
 

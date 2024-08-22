@@ -12,14 +12,13 @@ from .verificarPadroes import verificar_padroes
 def andarEscaneandoY(robot : Robo, y):
     print('Escaneando e andando...')
     robo.bz.reset()
-    distancia = 300
+    distancia = 280
     leituras = []
     saida = (False, Direcao(None))
     area = False
     ultima = False
     parede = None
 
-    robot.capturar()
     
 
 
@@ -31,28 +30,30 @@ def andarEscaneandoY(robot : Robo, y):
         leituras.append(robo.ultrassonicoFrente.distance())
         decrescente, variavel = verificar_padroes(leituras)
 
-        if y == 1 and robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance() or y == 2 and leituras[0] > 380:
+        if y == 1  or y == 2 and leituras[0] > 380:
 
-            print("capturar")
-            robo.bz.straight(distancia/2)
-            robot.capturar()
-            robo.bz.stop()
-            robo.bz.straight(distancia - robo.bz.distance())
-            
+            if robo.bz.distance() > int(distancia / 2):
+                if robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
+                    robot.capturar()
+                robo.bz.straight(distancia - robo.bz.distance())
+                break 
+
 
 
         elif y == 2 and len(leituras) > 25:
             
             if variavel:
-                #verificar se area
-                print('verificando area')
+                area = robot.checarParedeouArea()
+                if area == True:
+                    robo.bz.straight(-robo.bz.distance())
+                else:
+                    leituras = []
 
             else:
-                print("capturar")
-                robo.bz.straight(distancia/2)
-                robot.capturar()
-                robo.bz.stop()
+                if robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
+                    robot.capturar()
                 robo.bz.straight(distancia - robo.bz.distance())
+                break 
 
 
             
@@ -61,9 +62,9 @@ def andarEscaneandoY(robot : Robo, y):
 
 
             if parede == None:
-                parede = robot.checarParedeouArea()
-                
                 print('checar parede')
+                parede = robot.checarParedeouArea()
+
 
             if parede == True:
                 robo.bz.straight(-robo.bz.distance())
@@ -81,7 +82,8 @@ def andarEscaneandoY(robot : Robo, y):
                     area = robot.checarParedeouArea()
                     if area == True:
                         robo.bz.straight(-robo.bz.distance())
-                    print('verificando area')
+                    else:
+                        leituras = []
 
                 elif robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
                     print("capturar")
@@ -89,8 +91,10 @@ def andarEscaneandoY(robot : Robo, y):
                     robot.capturar()
                     robo.bz.stop()
                     robo.bz.straight(distancia - robo.bz.distance())                    
-
-
+        
+        
+        if area == True or ultima == True :
+            break
                 
 
 
@@ -98,13 +102,17 @@ def andarEscaneandoY(robot : Robo, y):
     coordenada = None
     if ultima == False:
         #corrige a distânccia peercorrida
-        if robo.bz.distance() > distancia and variavel ==  False:
+        if robo.bz.distance() > distancia and area ==  False:
             diferenca = robo.bz.distance() - distancia
             robo.bz.straight(-diferenca)
+            
+        elif area == True:
+            robo.bz.straight(-robo.bz.distance())
 
+        coordenada = Coordenada(Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= area, saida= saida))
+        print('Nova Coordenada Criada, x = {}, y = {},  area : {}, saida {}'.format(coordenada._x, coordenada._y, coordenada.comArea, coordenada.saida))
 
-        coordenada = Coordenada(Coordenada(0 , y+1, explorada=True, comArea= area, saida= saida))
-
-
+    else:
+        print('Fim da linha')
 
     return coordenada
