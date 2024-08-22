@@ -2,12 +2,13 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-from modulo.robo import robo
 from ..robo.classeRobo import Robo
-from .funcoesConstrutoras.iniciarMapa import iniciarMapa
 from ..Coordenada.coordenada import Coordenada
 from ..Mapa.mapa import Mapa
 from ..Direcao.direcao import Direcao
+from .funcoesConstrutoras.iniciarMapa import iniciarMapa
+
+from .metodos.enviarRobo import enviarRobo
 
 class SalaDeResgate:
 
@@ -26,18 +27,18 @@ class SalaDeResgate:
 
 
     iniciarMapa = iniciarMapa
+    enviarRobo = enviarRobo
 
 
-    def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
-
-        mapa = self._mapa
-        posicaoAtual = self._robo.coordenadaAtual
-        direcaoAtual = self._robo.direcaoAtual
+    def encontrarAreas():
+        print('Procurando áreas...')
         
-        diferencaY = posicaoAtual.y - coordenada.y 
 
 
-        # while posicaoAtual != coordenada or direcaoAtual != direcao:
+
+
+
+
 
 
 
