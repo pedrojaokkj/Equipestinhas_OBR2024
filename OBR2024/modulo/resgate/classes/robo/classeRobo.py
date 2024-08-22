@@ -10,6 +10,7 @@ from .metodos.virar import virar
 from .metodos.capturar import captura
 
 from .metodos.checarParedeouArea import checarParedeouArea
+from .metodos.ajustar_na_parede import ajutarnaParede
 
 
 
@@ -38,6 +39,9 @@ class Robo(RoboGettersSetters):
 
     def checarParedeouArea(self) -> bool:
         return checarParedeouArea()
+    
+    def ajutarnaParede(self) -> None:
+        ajutarnaParede()
 
 
 
