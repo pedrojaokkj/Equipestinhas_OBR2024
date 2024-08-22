@@ -62,6 +62,7 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
 
     print('"Here, this will help you."')
     print("ROBO received a Town Map from Daisy.")
+    
     mapa.exibir_mapa()
     robot.direcaoAtual = Direcao('direita')
     robot.coordenadaAtual = mapa.coordenadas[1 - 1] [2 -1]
