@@ -20,8 +20,8 @@ def virar(self, direcaoAlvo : Direcao):
     direcaoAtual = self.direcaoAtual.valor
     valorAlvo = direcaoAlvo.valor
 
-    print('Direção atual :', direcaoAtual)
-    print('Direção alvo :', direcaoAlvo)
+    print('Direção atual : ', direcaoAtual)
+    print('Direção alvo : ', valorAlvo)
 
     indiceAtual = direcoes[direcaoAtual][1]
 
@@ -41,7 +41,7 @@ def virar(self, direcaoAlvo : Direcao):
     if distanciaAntiHorario == distanciaHorario:
         #gire 180 graus
         print('Girando 180 graus')
-        robo.bz.turn(180)
+        robo.bz.turn(179)
 
     elif distanciaAntiHorario < distanciaHorario:
         #gire no sentido antiHorario

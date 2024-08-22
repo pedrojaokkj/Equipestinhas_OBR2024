@@ -80,6 +80,9 @@ def escanearFrenteY(robot : Robo, mapa):
 
     print('Voltando')
     robot.virarAte(Direcao('tras'))
+    if coordenadas[len(coordenadas)-1].comArea == False and coordenadas[len(coordenadas)-1].saida == False:
+        robot.ajutarnaParede()
+        
     paredes_direita = []
     paredes_direita.append(verificarLado())
 

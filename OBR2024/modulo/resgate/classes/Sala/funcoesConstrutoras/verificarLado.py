@@ -41,6 +41,6 @@ def verificarLado() -> bool:
     parede = media < 100
     print('Parede : ', parede)
 
-    robo.bz.turn(2)
+    robo.bz.turn(1)
 
     return parede

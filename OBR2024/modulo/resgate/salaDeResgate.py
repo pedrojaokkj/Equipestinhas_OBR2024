@@ -19,4 +19,7 @@ def resgate():
 
     sala.enviarRobo(coordenada = Coordenada(x = 3, y =1), direcao= Direcao('tras'))
 
+    
+    robo.wait(5000)
+
 

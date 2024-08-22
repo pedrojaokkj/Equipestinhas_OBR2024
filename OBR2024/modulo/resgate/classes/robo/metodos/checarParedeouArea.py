@@ -13,7 +13,7 @@ def checarParedeouArea():
 
     robo.garra.reset_angle(0)
 
-    robo.garra.run_time(-150,700)
+    robo.garra.run_time(-250,700)
     robo.garra.stop()
     robo.wait(1400)
     print(robo.garra.angle())
