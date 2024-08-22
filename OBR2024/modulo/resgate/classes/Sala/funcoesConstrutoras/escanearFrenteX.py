@@ -24,7 +24,7 @@ def escanearFrenteX(robot : Robo, mapa):
             robot.virarAte(Direcao('esquerda'))
             if ultimaDireita.saida != (True, Direcao('direita')):
                 print('Se alinhar na parede')
-                #implementar
+                robot.ajutarnaParede()
             break
         
         andouAteDireita += 1
@@ -38,7 +38,7 @@ def escanearFrenteX(robot : Robo, mapa):
             robot.virarAte(Direcao('direita'))
             if coordenada.saida != (True, Direcao('esquerda')):
                 print('Se alinhar na parede')
-                #implementar
+                robot.ajutarnaParede()
             break 
 
         coordenadas.append(coordenada)

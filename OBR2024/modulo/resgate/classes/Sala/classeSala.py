@@ -36,7 +36,9 @@ class SalaDeResgate:
 
     def encontrarAreas():
         print('Procurando áreas...')
+        
 
+    
             
 
 

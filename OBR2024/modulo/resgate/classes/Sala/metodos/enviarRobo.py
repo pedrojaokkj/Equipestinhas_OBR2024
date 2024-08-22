@@ -99,13 +99,14 @@ def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
     
     mapaRestringido.coordenadas = [['Coordenada Restringida' if restricao(coordenada, mapa) else coordenada for coordenada in linha] for linha in mapaRestringido.coordenadas]
     intruncoes = calcularDistancia(coordenada, direcao, mapaRestringido, posicaoAtual, direcaoAtual)
+    print([passo.valor if isinstance(passo, Direcao) else passo for passo in intruncoes])
 
     for passo in intruncoes:
         if isinstance(passo, Direcao):
             self._robo.virarAte(passo)
 
         elif passo == 'seguir':
-            self.andar_cordenada()
+            self.andarCoordenada(self)
     
         else:
             print('Chegou')
