@@ -19,6 +19,7 @@ def pretoOuVerde(sensor:robo.ColorSensor):
         sensor (ColorSensor) : Sensor que detectou a cor
     '''
 
+    robo.bz.straight(-10)
     robo.bz.stop()
     if sensor == robo.sensorCorDireita:
         sensor2 = robo.sensorCorEsquerda

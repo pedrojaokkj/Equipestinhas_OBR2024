@@ -85,11 +85,12 @@ def preto(sensor:robo.ColorSensor):
 
         alinhar()        
         # robo.bz.stop()
-        # while sensor.reflection() < 65:    
+        # while sensor.reflection() < 75:    
         #     motor.run(-35)
 
-        # motor.stop() 
-        # robo.bz.straight(-6)
+        # motor.stop()
+        # robo.bz.turn(1 * lado) 
+        # robo.bz.straight(-2)
         # robo.bz.stop()
 
 

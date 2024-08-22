@@ -14,7 +14,7 @@ from modulo.resgate.classes.robo.metodos.checarParedeouArea import checarParedeo
 
 def teste():
     
-    print(checarParedeouArea())
+    print(robo.sensorCorDireita.reflection())
 
 
 
