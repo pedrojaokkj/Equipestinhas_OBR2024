@@ -13,6 +13,9 @@ def alinhar():
 
     while robo.sensorCorEsquerda.reflection() > 65:
         robo.bz.drive(0, 40)
+        if robo.bz.angle() > 18:
+            break
+
 
     angulo1 = robo.bz.angle()
     robo.bz.stop()
@@ -23,6 +26,9 @@ def alinhar():
 
     while robo.sensorCorDireita.reflection() > 65:
         robo.bz.drive(0, -40)
+        if robo.bz.angle() < -18:
+            break
+
 
     angulo2 = robo.bz.angle()
     robo.bz.stop()
@@ -43,7 +49,7 @@ def alinhar():
 
     elif 0 in [angulo1, angulo2]:
         robo.bz.turn(-diferenca/2)
-        robo.bz.straight(-diferenca)
+        robo.bz.straight(-15)
         robo.bz.turn(diferenca * 1)
 
     elif abs(diferenca) < 7:
@@ -52,7 +58,7 @@ def alinhar():
     else:
         robo.bz.turn(-diferenca/2)
         robo.bz.straight(-10)
-        robo.bz.turn(diferenca * 1.2)
+        robo.bz.turn(diferenca * 1)
 
 
 
