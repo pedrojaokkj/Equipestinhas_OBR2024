@@ -8,20 +8,21 @@ from ...Coordenada.coordenada import Coordenada
 
 
 def curvaPara(direcaoAtual : Direcao , coordenadaAtual : Coordenada, coordenadaAlvo : Coordenada):
-    curva = False
+    # Verifica se o X aumenta ou diminui
+    if coordenadaAlvo.x > coordenadaAtual.x:
+        direcaoNecessaria = Direcao('direita')
+    elif coordenadaAlvo.x < coordenadaAtual.x:
+        direcaoNecessaria = Direcao('esquerda')
+    else:
+        direcaoNecessaria = direcaoAtual  # não é necessário virar
 
-    if coordenadaAtual.y > coordenadaAlvo.y and direcaoAtual != Direcao('tras'):
-        curva = Direcao('tras')
+    # Verifica se o Y aumenta ou diminui
+    if coordenadaAlvo.y > coordenadaAtual.y:
+        direcaoNecessaria = Direcao('frente')
+    elif coordenadaAlvo.y < coordenadaAtual.y:
+        direcaoNecessaria = Direcao('tras')
 
-    elif coordenadaAtual.y < coordenadaAlvo.y and direcaoAtual != Direcao('frente'):
-        curva = Direcao('frente')
-
-    if coordenadaAtual.x < coordenadaAlvo.x and direcaoAtual != Direcao('direita'):
-        curva = Direcao('direita')
-
-    elif coordenadaAtual.x > coordenadaAlvo.x and direcaoAtual != Direcao('esquerda'):
-        curva = Direcao('esquerda')
-    
-    return curva
+    # Verifica se a direção atual é igual à direção necessária
+    return direcaoNecessaria
 
 

@@ -119,4 +119,12 @@ class Coordenada:
 
 
 
-    
+    def exibir_propriedades(self) -> None:
+
+        print('')
+        print("Posição: ({}, {})".format(self.x, self.y))
+        print("Com Área: {}".format(self.comArea))
+        print("Explorada: {}".format(self.explorada))
+        print("Saída: {}".format(self.saida))
+        print("Entrada: {}".format(self.entrada))
+        print('')

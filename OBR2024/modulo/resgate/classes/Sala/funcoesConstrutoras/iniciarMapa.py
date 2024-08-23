@@ -17,6 +17,7 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
 
     
     Returns:
+        robot(Robo) : robo para a iniciação da classe Sala 
         mapa(Mapa) : Mapa da sala iniciada.
     '''
 
@@ -76,7 +77,7 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
     #andarAté(x = 2, y = 2, direção, direita)
     print("Centralizando...")
 
-    robo.bz.straight(280)
+    robo.bz.straight(270)
     robot.capturar()
 
     print("Centralizado x = 2 y = 2")
@@ -85,7 +86,7 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
 
 
     self._saida = saida
-    self._entrada = coordenadas_y_entrada[1]
+    self._entrada = coordenadas_y_entrada[0]
 
 
     return (robot, mapa)

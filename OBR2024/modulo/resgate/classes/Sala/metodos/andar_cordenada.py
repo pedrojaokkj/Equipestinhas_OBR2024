@@ -23,7 +23,7 @@ def andar_cordenada(self):
 
     while robo.bz.distance() < cm:
         bz.drive(80, 0)
-        if robo.ultrassonicoFrente.distance < 380 - cm:
+        if robo.ultrassonicoFrente.distance() < 380 - cm:
             self._robo.capturar
 
     bz.stop()

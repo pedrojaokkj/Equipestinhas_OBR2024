@@ -43,6 +43,7 @@ def andarEscaneandoY(robot : Robo, y):
         elif y == 2 and len(leituras) > 25:
             
             if variavel:
+                print('Checando area')
                 area = robot.checarParedeouArea()
                 if area == True:
                     robo.bz.straight(-robo.bz.distance())
@@ -73,13 +74,14 @@ def andarEscaneandoY(robot : Robo, y):
             elif len(leituras) > 25:
 
                 if robo.sensorCorDireita.reflection() < 15:
-                    saida = (True, Direcao('Frente'))
+                    saida = (True, Direcao('frente'))
                     robo.bz.straight(-robo.bz.distance())
                     ultima = True
 
                 elif variavel:
 
                     area = robot.checarParedeouArea()
+                    print('Checando area')
                     if area == True:
                         robo.bz.straight(-robo.bz.distance())
                     else:
@@ -109,9 +111,8 @@ def andarEscaneandoY(robot : Robo, y):
         elif area == True:
             robo.bz.straight(-robo.bz.distance())
 
-        coordenada = Coordenada(Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= area, saida= saida))
-        print('Nova Coordenada Criada, x = {}, y = {},  area : {}, saida {}'.format(coordenada._x, coordenada._y, coordenada.comArea, coordenada.saida))
-
+        coordenada = Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= area, saida= saida)
+        coordenada.exibir_propriedades()
     else:
         print('Fim da linha')
 

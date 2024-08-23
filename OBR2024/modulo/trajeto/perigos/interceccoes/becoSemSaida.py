@@ -55,6 +55,7 @@ def becoSemSaida():
         robo.motorDireito.run(200)
         robo.motorEsquerdo.run(-200)
     robo.bz.stop()
+    robo.bz.turn(- 8)
 
     robo.wait(500)
     
