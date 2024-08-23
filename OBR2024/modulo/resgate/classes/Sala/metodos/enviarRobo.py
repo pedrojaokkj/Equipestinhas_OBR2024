@@ -20,11 +20,11 @@ def calcularDistancia(coordenadaFinal : Coordenada, direcaoFinal : Direcao, mapa
     diferencaX = coordenadaFinal.x - cooredenadaAtual.x 
 
 
-    if diferencaX == 0 and diferencaY == 0 and direcaoAtual == direcaoFinal:
+    if diferencaX == 0 and diferencaY == 0 and direcaoAtual.valor == direcaoFinal.valor:
         rota = ['Cabou XD!']
 
 
-    elif diferencaX == 0 and diferencaY == 0 and direcaoAtual != direcaoFinal:
+    elif diferencaX == 0 and diferencaY == 0 and direcaoAtual.valor != direcaoFinal.valor:
         rota = [direcaoFinal, 'Cabou XD!']
     
     else:
@@ -61,14 +61,21 @@ def calcularDistancia(coordenadaFinal : Coordenada, direcaoFinal : Direcao, mapa
             caminhos.append([])
             curvaNecessaria = curvaPara(direcaoAtual, cooredenadaAtual, p)
 
+            caminhos[i] = calcularDistancia(coordenadaFinal, direcaoFinal, mapa, p, curvaNecessaria)
+
             if curvaNecessaria.valor == direcaoAtual.valor:
                 passo = [p]
+                caminhos[i].insert(0, passo[0])
             else: 
                 passo = [curvaNecessaria, p]
+                caminhos[i].insert(0, passo[1])                
+                caminhos[i].insert(0, passo[0])
 
 
-            caminhos[i].append(calcularDistancia(coordenadaFinal, direcaoFinal, mapa, p, curvaNecessaria))
-            caminhos[i].insert(0,passo)
+
+
+            
+
 
         rota = min(caminhos, key=len)
 

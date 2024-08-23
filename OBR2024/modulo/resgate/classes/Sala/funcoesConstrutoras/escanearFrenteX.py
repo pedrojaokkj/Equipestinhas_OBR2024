@@ -33,7 +33,7 @@ def escanearFrenteX(robot : Robo, mapa):
     while True:
         
         coordenada, final = andarEscaneandoX(robot, Direcao('esquerda'))
-
+        coordenada.exibir_propriedades()
         if final == True:
             robot.virarAte(Direcao('direita'))
             if coordenada.saida != (True, Direcao('esquerda')):

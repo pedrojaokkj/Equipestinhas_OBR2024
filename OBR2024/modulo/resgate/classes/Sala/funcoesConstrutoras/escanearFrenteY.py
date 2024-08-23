@@ -27,6 +27,7 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
 
     #atribui as variaveis de verificação
     coordenadas = [Coordenada(x = 0, y = 1, explorada = True, entrada = True)] 
+    coordenadas[0].exibir_propriedades()
     final = False
     y_atual = 1
     paredes_esquerda = []
@@ -95,7 +96,7 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
 
     print('y=2')
     
-    if [coordenada.saida for coordenada in coordenadas].count((True, Direcao('esquerda'))) == 0:
+    if [coordenada.saida[0] for coordenada in coordenadas].count(True) == 0:
 
         if paredes_direita.count(False) == 1:
             coordenadas[len(coordenadas) - paredes_esquerda.index(False) - 1].saida = (True, Direcao('direita'))

@@ -111,9 +111,8 @@ def andarEscaneandoY(robot : Robo, y):
         elif area == True:
             robo.bz.straight(-robo.bz.distance())
 
-        coordenada = Coordenada(Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= area, saida= saida))
-        print('Nova Coordenada Criada, x = {}, y = {},  area : {}, saida {}'.format(coordenada._x, coordenada._y, coordenada.comArea, coordenada.saida))
-
+        coordenada = Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= area, saida= saida)
+        coordenada.exibir_propriedades()
     else:
         print('Fim da linha')
 

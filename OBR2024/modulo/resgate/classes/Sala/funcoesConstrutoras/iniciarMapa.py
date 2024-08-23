@@ -77,7 +77,7 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
     #andarAté(x = 2, y = 2, direção, direita)
     print("Centralizando...")
 
-    robo.bz.straight(280)
+    robo.bz.straight(270)
     robot.capturar()
 
     print("Centralizado x = 2 y = 2")
