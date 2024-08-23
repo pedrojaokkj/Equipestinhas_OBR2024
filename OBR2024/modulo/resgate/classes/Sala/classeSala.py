@@ -27,12 +27,13 @@ class SalaDeResgate:
 
 
     #atribuição das funções da classe
+    
+    def andarCoordenada(self):
+        andar_cordenada(self)
 
     def enviarRobo(self, coordenada : Coordenada, direcao : Direcao) -> None:
         enviarRobo(self, coordenada, direcao)
 
-    def andarCordenada(self) -> bool:
-        andar_cordenada(self)
 
     def encontrarAreas():
         print('Procurando áreas...')

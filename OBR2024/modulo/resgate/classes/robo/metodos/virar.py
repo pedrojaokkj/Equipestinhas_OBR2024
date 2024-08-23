@@ -20,38 +20,45 @@ def virar(self, direcaoAlvo : Direcao):
     direcaoAtual = self.direcaoAtual.valor
     valorAlvo = direcaoAlvo.valor
 
-    print('Direção atual : ', direcaoAtual)
-    print('Direção alvo : ', valorAlvo)
+    if direcaoAtual == valorAlvo:
+        print('Você já está na {}'.format(direcaoAlvo.valor))
 
-    indiceAtual = direcoes[direcaoAtual][1]
-
-    if indiceAtual > direcoes[valorAlvo][1]:
-
-        indiceAlvoAH = direcoes[valorAlvo][1]
-        indiceAlvoH = direcoes[valorAlvo][2]
 
     else:
-        indiceAlvoAH = direcoes[valorAlvo][0]
-        indiceAlvoH = direcoes[valorAlvo][1]
 
 
-    distanciaHorario =  indiceAlvoH - indiceAtual
-    distanciaAntiHorario = indiceAtual - indiceAlvoAH
+        print('Direção atual : ', direcaoAtual)
+        print('Direção alvo : ', valorAlvo)
 
-    if distanciaAntiHorario == distanciaHorario:
-        #gire 180 graus
-        print('Girando 180 graus')
-        robo.bz.turn(179)
+        indiceAtual = direcoes[direcaoAtual][1]
 
-    elif distanciaAntiHorario < distanciaHorario:
-        #gire no sentido antiHorario
-        print('Girando até : {} Sentido Anti-Horário'.format(valorAlvo))
-        robo.bz.turn(-90)
+        if indiceAtual > direcoes[valorAlvo][1]:
 
-    else:
-        #gire no sentido horario
-        print('Girando até : {} Sentido Horário'.format(valorAlvo))
-        robo.bz.turn(90)
- 
-    self.direcaoAtual = direcaoAlvo
+            indiceAlvoAH = direcoes[valorAlvo][1]
+            indiceAlvoH = direcoes[valorAlvo][2]
+
+        else:
+            indiceAlvoAH = direcoes[valorAlvo][0]
+            indiceAlvoH = direcoes[valorAlvo][1]
+
+
+        distanciaHorario =  indiceAlvoH - indiceAtual
+        distanciaAntiHorario = indiceAtual - indiceAlvoAH
+
+        if distanciaAntiHorario == distanciaHorario:
+            #gire 180 graus
+            print('Girando 180 graus')
+            robo.bz.turn(179)
+
+        elif distanciaAntiHorario < distanciaHorario:
+            #gire no sentido antiHorario
+            print('Girando até : {} Sentido Anti-Horário'.format(valorAlvo))
+            robo.bz.turn(-90)
+
+        else:
+            #gire no sentido horario
+            print('Girando até : {} Sentido Horário'.format(valorAlvo))
+            robo.bz.turn(90)
+    
+        self.direcaoAtual = direcaoAlvo
 

@@ -55,21 +55,22 @@ def calcularDistancia(coordenadaFinal : Coordenada, direcaoFinal : Direcao, mapa
 
         caminhos = []
 
-        passo = 0
-        for p in possibilidades:
+
+
+        for i,p in enumerate(possibilidades):
+            caminhos.append([])
             curvaNecessaria = curvaPara(direcaoAtual, cooredenadaAtual, p)
-            if curvaNecessaria == False:
-                passo = 'seguir'
+
+            if curvaNecessaria.valor == direcaoAtual.valor:
+                passo = [p]
             else: 
-                passo = curvaNecessaria
+                passo = [curvaNecessaria, p]
 
 
-
-            caminhos.append(calcularDistancia(coordenadaFinal, direcaoFinal, mapa, p, curvaNecessaria))
-
+            caminhos[i].append(calcularDistancia(coordenadaFinal, direcaoFinal, mapa, p, curvaNecessaria))
+            caminhos[i].insert(0,passo)
 
         rota = min(caminhos, key=len)
-        rota.insert(0, passo)
 
     return rota    
                     
@@ -94,19 +95,38 @@ def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
         elif coordenada in quinas and coordenada.explorada == False:
             retorno = True
 
-        return retorno            
+        return retorno         
+   
+    
+    
 
     
-    mapaRestringido.coordenadas = [['Coordenada Restringida' if restricao(coordenada, mapa) else coordenada for coordenada in linha] for linha in mapaRestringido.coordenadas]
+    mapaRestringido.coordenadas = [['Coordenada Restringida' if restricao(coorde, mapa) else coorde for coorde in linha] for linha in mapa.coordenadas]
+    for linha in mapaRestringido.coordenadas:
+        print(' '.join(str((coord.x, coord.y)) if coord  != 'Coordenada Restringida' else 'Restringido' for coord in linha))
+
     intruncoes = calcularDistancia(coordenada, direcao, mapaRestringido, posicaoAtual, direcaoAtual)
-    print([passo.valor if isinstance(passo, Direcao) else passo for passo in intruncoes])
+
+
+    intruncoesprint = []
+    for passo in intruncoes:
+        if isinstance(passo, Direcao):
+            intruncoesprint.append(passo.valor)
+        elif isinstance(passo, Coordenada):
+            intruncoesprint.append(passo.posicao)
+        else:
+            intruncoesprint.append(passo)
+
+    print(intruncoesprint)
+
+
 
     for passo in intruncoes:
         if isinstance(passo, Direcao):
             self._robo.virarAte(passo)
 
-        elif passo == 'seguir':
-            self.andarCoordenada(self)
+        elif isinstance(passo,  Coordenada):
+            self.andarCoordenada()
     
         else:
             print('Chegou')

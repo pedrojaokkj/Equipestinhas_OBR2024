@@ -10,39 +10,10 @@ from modulo.trajeto.checagens.confirmaCor import confirmaCor
 from modulo.resgate.movimentos.ladrilo_inicial import ladrilhoInicial
 from modulo.resgate.classes.Sala.metodos.andar_cordenada import andar_cordenada
 from modulo.resgate.classes.robo.metodos.checarParedeouArea import checarParedeouArea
-from modulo.programasTeste.musica import tocar
-
-def teste():
-    tocar()
+import os
 
 
+def tocar():
+    sound = robo.SoundFile().EV3
 
-
-    
-
-
-
-
-            
-            
-                   
-            
-            
-
-
-                            
-
-                    
-
-
-            
-
-                        
-                
-
-
-
-
-
-
-
+    robo.ev3.speaker.play_file(sound)

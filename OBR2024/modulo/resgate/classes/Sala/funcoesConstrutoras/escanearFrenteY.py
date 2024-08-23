@@ -13,7 +13,7 @@ from ...robo.classeRobo import Robo
 
 
 
-def escanearFrenteY(robot : Robo, mapa):
+def escanearFrenteY(robot : Robo, mapa: Mapa):
     ''' Pode alterar o comprimento padrão do mapa e retorna uma lista de Coordenadas da coluna equivalente a entrada.
 
     Args:
@@ -80,7 +80,7 @@ def escanearFrenteY(robot : Robo, mapa):
 
     print('Voltando')
     robot.virarAte(Direcao('tras'))
-    if coordenadas[len(coordenadas)-1].comArea == False and coordenadas[len(coordenadas)-1].saida == False:
+    if coordenadas[len(coordenadas)-1].comArea == False and coordenadas[len(coordenadas)-1].saida == [False, None] or coordenadas[len(coordenadas)-1].saida[1].valor != 'frente' :
         robot.ajutarnaParede()
         
     paredes_direita = []

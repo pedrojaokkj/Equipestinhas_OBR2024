@@ -16,8 +16,8 @@ def andarEscaneandoX(robot : Robo, direcao : Direcao):
 
 
     distancia = 280 #atribuir
-    
-    if robo.ultrassonicoFrente.distance() < 100:
+    print(robo.ultrassonicoFrente.distance())
+    if robo.ultrassonicoFrente.distance() < 150:
         parede = robot.checarParedeouArea()
         print('Checando parede...')
 
