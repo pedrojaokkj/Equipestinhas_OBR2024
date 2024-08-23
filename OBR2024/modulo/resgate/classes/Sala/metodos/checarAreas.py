@@ -16,6 +16,9 @@ def checarAreas(self):
     
     '''
 
+    print('Conferindo areas..')
+
+
     maxY = len(self._mapa.coordenadas[0]) - 1
     maxX = len(self._mapa.coordenadas) - 1
 
@@ -27,7 +30,7 @@ def checarAreas(self):
         quinasInesploradas = [quina for quina in quinas if quina.explorada == False]
 
         if len(areas) == 2:
-
+            print('Leitura Completa')
             break
         
         elif len(areas) == 1 and len(quinasInesploradas) == 1:
@@ -72,6 +75,7 @@ def checarAreas(self):
 
                 area = True#chamar função de ler area
 
+                print('Area : ', area)
                 if area == True:
                     self._mapa.coordenadas[quina.x - 1][quina.y -1].comArea = True
                     self._mapa.coordenadas[quina.x - 1][quina.y -1].explorada = True
