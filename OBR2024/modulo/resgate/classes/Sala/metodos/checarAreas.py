@@ -6,6 +6,7 @@ from ...robo.classeRobo import Robo
 from ...Coordenada.coordenada import Coordenada
 from ...Mapa.mapa import Mapa
 from ...Direcao.direcao import Direcao
+from .irParaArea import irParaArea
 
 from .depoistarArea import depositarArea
 
@@ -73,7 +74,7 @@ def checarAreas(self):
                 self.enviarRobo(coordenadaAlvo, direcaoAlvo)
 
 
-                area = True#chamar função de ler area
+                area = irParaArea()
 
                 print('Area : ', area)
                 if area == True:
@@ -82,6 +83,7 @@ def checarAreas(self):
                     break
 
 
+                
                 
 
         
