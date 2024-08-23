@@ -23,6 +23,8 @@ def depositar(AreaTrue = False):
     robo.mecanismoDeposito.run_time(-240,1000)
     robo.mecanismoDeposito.run_time(240,400)
     robo.mecanismoDeposito.run_time(-240,1000)
+    robo.mecanismoDeposito.run_time(240,400)
+    robo.mecanismoDeposito.run_time(-240,1000)
     robo.garra.run_time(1000,2000)
 
 

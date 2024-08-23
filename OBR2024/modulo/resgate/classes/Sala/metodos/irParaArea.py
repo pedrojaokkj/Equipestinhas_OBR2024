@@ -2,20 +2,16 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
-import modulo.robo.robo as robo
-from modulo.trajeto.perigos.interceccoes.preto import preto
-from modulo.trajeto.perigos.interceccoes.pretoOuVerde import pretoOuVerde
-from modulo.trajeto.perigos.interceccoes.becoOuDoisPretos import becoOuDoisPretos
-from modulo.trajeto.checagens.confirmaCor import confirmaCor
-from modulo.resgate.movimentos.ladrilo_inicial import ladrilhoInicial
-from modulo.resgate.classes.Sala.metodos.andar_cordenada import andar_cordenada
+
+from ...Direcao.direcao import Direcao
+from ...Coordenada.coordenada import Coordenada
+from modulo.robo import robo
+from ...robo.classeRobo import Robo
 from modulo.resgate.classes.robo.metodos.checarParedeouArea import checarParedeouArea
 from modulo.resgate.classes.robo.metodos.capturar import captura
 from modulo.resgate.movimentos.depositar import depositar
 
-
-def teste():
-    
+def irParaArea():
     bz = robo.bz
     bz.reset()
     bz.turn(45)
@@ -48,55 +44,7 @@ def teste():
 
     return area
 
-
-
-
     
-
-
-    
-         
-        
-    return
-        
-    
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-            
-            
-                   
-            
-            
-
-
-                            
-
-                    
-
-
-            
-
-                        
-                
-
-
 
 
 
