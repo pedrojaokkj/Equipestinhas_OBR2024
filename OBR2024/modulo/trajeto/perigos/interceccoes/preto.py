@@ -59,7 +59,7 @@ def preto(sensor:robo.ColorSensor):
 
             robo.bz.turn(-6 * lado)
             robo.bz.stop()
-            robo.bz.straight(20)
+            robo.bz.straight(40)
         
 
         else:
