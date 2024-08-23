@@ -8,6 +8,8 @@ from ..Mapa.mapa import Mapa
 from ..Direcao.direcao import Direcao
 from .funcoesConstrutoras.iniciarMapa import iniciarMapa
 from .metodos.andar_cordenada import andar_cordenada
+from .metodos.checarAreas import checarAreas
+from .metodos.depoistarArea import depositarArea
 
 from .metodos.enviarRobo import enviarRobo
 
@@ -27,20 +29,36 @@ class SalaDeResgate:
 
 
     #atribuição das funções da classe
-    
-    def andarCoordenada(self):
-        andar_cordenada(self)
 
     def enviarRobo(self, coordenada : Coordenada, direcao : Direcao) -> None:
+        '''Envia o robo para a coordenada desejada'''
+
+
         enviarRobo(self, coordenada, direcao)
 
 
-    def encontrarAreas():
-        print('Procurando áreas...')
+
+    def andarCordenada(self):
+        ''' Anda para a frente uma vez altera a posição do robo na classe.
         
+        '''
+        andar_cordenada(self)
+
+
+    def depositarArea(self, coord):
+        '''Deposita a em uma area na sala de resgate'''
+        depositarArea(self, coord)
+
+
+
+    def encontrarAreas(self):
+        ''' Adciona ao mapa da sala as areas de resgate.
+
+        
+        '''
+        checarAreas(self)
 
     
-            
 
 
 

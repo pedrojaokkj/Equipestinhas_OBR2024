@@ -17,7 +17,7 @@ def resgate():
 
     sala = SalaDeResgate(robot)
 
-    sala.enviarRobo(coordenada = Coordenada(x = 3, y =1), direcao= Direcao('tras'))
+    sala.encontrarAreas()
 
     
     robo.wait(5000)
