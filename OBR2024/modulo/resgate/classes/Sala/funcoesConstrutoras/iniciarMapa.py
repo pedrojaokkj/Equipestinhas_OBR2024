@@ -34,10 +34,10 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
         robo.motorEsquerdo.run(40)
         if esq == True and dir == True:
             break
-        if robo.sensorCorDireita.reflection() < 60:
+        if robo.sensorCorDireita.reflection() < 60 and robo.sensorCorDireita.reflection() > 30:
             robo.motorDireito.stop()
             dir = True
-        elif robo.sensorCorEsquerda.reflection() < 60: 
+        elif robo.sensorCorEsquerda.reflection() < 60 and robo.sensorCorEsquerda.reflection() > 30: 
             robo.motorEsquerdo.stop()
             esq = True
 

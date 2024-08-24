@@ -27,7 +27,7 @@ def andarEscaneandoY(robot : Robo, y):
 
     while robo.bz.distance() <  distancia:
 
-        robo.bz.drive(60, 0)
+        robo.bz.drive(100, 0)
         leituras.append(robo.ultrassonicoFrente.distance())
         decrescente, variavel = verificar_padroes(leituras)
 
@@ -48,7 +48,7 @@ def andarEscaneandoY(robot : Robo, y):
                 print('Checando area')
                 area = robot.checarParedeouArea()
                 viuArea = True
-                if area == True:
+                if viuArea == True:
                     robo.bz.straight(-robo.bz.distance())
                 else:
                     leituras = []
@@ -78,7 +78,7 @@ def andarEscaneandoY(robot : Robo, y):
         elif area == True:
             robo.bz.straight(-robo.bz.distance())
 
-        coordenada = Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= area, saida= saida)
+        coordenada = Coordenada(x = 0 ,y =  y+1, explorada=True, comArea= viuArea, saida= saida)
         coordenada.exibir_propriedades()
     else:
         print('Fim da linha')
