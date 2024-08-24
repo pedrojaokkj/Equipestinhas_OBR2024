@@ -10,6 +10,8 @@ from ...Direcao.direcao import Direcao
 from .enviarRobo import calcularDistancia, executarInstrucoes
 
 
+
+
 def explorar(self):
     ''' Vai até os ladrilhos inexplorado, procurando pela saida e pelas vitimas
     
@@ -20,6 +22,9 @@ def explorar(self):
 
     print('Esplorando ladrilhos restantes...')
 
+    quinas = [mapa.coordenadas[0][0], mapa.coordenadas[0][maxY], mapa.coordenadas[maxX][maxY], mapa.coordenadas[maxX][0]]
+
+
     while True:
 
         mapa = self._mapa
@@ -29,7 +34,7 @@ def explorar(self):
 
         for linha in mapa.coordenadas:
             for coordenada in linha:
-                if coordenada.explorada == False and coordenada.x == maxX or coordenada.y  == maxY:
+                if coordenada.explorada == False and coordenada.x in (0, maxX) or coordenada.y  in (0, maxY):
 
                     inexplorados.append(coordenada)
 
@@ -38,8 +43,37 @@ def explorar(self):
             break
 
 
-        # else:
-        #     calcularDistancia()
+        else:
+            distancias = []
+            for coordenada  in inexplorados:
+                if coordenada.x == 0:
+                    direcao = Direcao('esquerda')
+                elif coordenada.x == maxX:
+                    direcao =  Direcao('direita')
+                elif coordenada.y == maxY:
+                    direcao = Direcao('frente')
+                elif coordenada.y == 0:
+                    direcao = Direcao('tras')
+
+                distancias.append(calcularDistancia(coordenada, direcao, mapa, self._robo.direcaoAtual, self._robo.coordenadaAtual))
+
+            distancias.sort(key=len, reverse=True)
+
+            executarInstrucoes(distancias[0])
+            parede = self._robo.checarParedeouArea()
+
+            if parede == False:
+                coordenadaAtual = self._robo.coordenadaAtual 
+                self._mapa.coordenadas[coordenadaAtual.x-1][coordenadaAtual.y-1].saida = (True, self._robo.direcaoAtual)
+                self._saida = [coordenadaAtual,  self._robo.direcaoAtual]
+
+
+
+
+
+
+
+            
 
         
         
