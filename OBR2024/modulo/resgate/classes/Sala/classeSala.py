@@ -2,6 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
+from ....robo import robo
 from ..robo.classeRobo import Robo
 from ..Coordenada.coordenada import Coordenada
 from ..Mapa.mapa import Mapa
@@ -10,6 +11,8 @@ from .funcoesConstrutoras.iniciarMapa import iniciarMapa
 from .metodos.andar_cordenada import andar_cordenada
 from .metodos.checarAreas import checarAreas
 from .metodos.depoistarArea import depositarArea
+from .metodos.sair import sair
+from .metodos.explorar import explorar
 
 from .metodos.enviarRobo import enviarRobo
 
@@ -57,6 +60,51 @@ class SalaDeResgate:
         
         '''
         checarAreas(self)
+
+
+    def explorar(self):
+        print('Esplorando ladrilhos restantes...')
+        mapa = self._mapa
+        inexplorados = []
+
+        for linha in mapa.coordenadas:
+            for coordenada in linha:
+                if coordenada.explorada == False:
+                    inexplorados.append(coordenada)
+
+
+        
+
+
+    def sair(self):
+        
+        mapa = self._mapa
+        saida = [[coordenada for coordenada in linha if coordenada.saida[0] == True] for linha in mapa.coordenadas]
+
+        if len(saida) == 1:
+            saida = saida[0][0]
+
+        else:
+            self.explorar()
+            mapa = self._mapa
+            saida = [[coordenada for coordenada in linha if coordenada.saida[0] == True] for linha in mapa.coordenadas]
+
+            if len(saida) == 1:
+                saida = saida[0][0]
+            else:
+                return
+
+
+        self.enviarRobo(saida, saida.saida[1])
+                
+
+
+        
+                
+
+
+
+
 
     
 

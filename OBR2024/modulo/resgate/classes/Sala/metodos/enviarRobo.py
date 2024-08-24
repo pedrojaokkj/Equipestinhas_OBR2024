@@ -82,6 +82,33 @@ def calcularDistancia(coordenadaFinal : Coordenada, direcaoFinal : Direcao, mapa
     return rota    
                     
 
+def executarInstrucoes(self, instrucoes : list):
+    instrucoesprint = []
+    for passo in instrucoes:
+        if isinstance(passo, Direcao):
+            instrucoesprint.append(passo.valor)
+        elif isinstance(passo, Coordenada):
+            instrucoesprint.append(passo.posicao)
+        else:
+            instrucoesprint.append(passo)
+
+    print(instrucoesprint)
+
+
+
+    for passo in instrucoes:
+        if isinstance(passo, Direcao):
+            self._robo.virarAte(passo)
+
+        elif isinstance(passo,  Coordenada):
+            self.andarCoordenada()
+    
+        else:
+            print('Chegou')
+
+
+
+
 
 def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
     mapa = self._mapa
@@ -112,30 +139,10 @@ def enviarRobo(self, coordenada : Coordenada, direcao : Direcao):
     for linha in mapaRestringido.coordenadas:
         print(' '.join(str((coord.x, coord.y)) if coord  != 'Coordenada Restringida' else 'Restringido' for coord in linha))
 
-    intruncoes = calcularDistancia(coordenada, direcao, mapaRestringido, posicaoAtual, direcaoAtual)
+    instrucoes = calcularDistancia(coordenada, direcao, mapaRestringido, posicaoAtual, direcaoAtual)
+
+    executarInstrucoes(self, instrucoes)
 
 
-    intruncoesprint = []
-    for passo in intruncoes:
-        if isinstance(passo, Direcao):
-            intruncoesprint.append(passo.valor)
-        elif isinstance(passo, Coordenada):
-            intruncoesprint.append(passo.posicao)
-        else:
-            intruncoesprint.append(passo)
-
-    print(intruncoesprint)
-
-
-
-    for passo in intruncoes:
-        if isinstance(passo, Direcao):
-            self._robo.virarAte(passo)
-
-        elif isinstance(passo,  Coordenada):
-            self.andarCoordenada()
-    
-        else:
-            print('Chegou')
 
 
