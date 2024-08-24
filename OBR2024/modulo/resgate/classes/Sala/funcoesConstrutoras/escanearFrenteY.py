@@ -68,7 +68,7 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
 
     #atribui um valor para o X das coordenadas de acordo com as leituras acumuladas em paredes_esquerda
     elif paredes_esquerda.count(False) == 1:
-        coordenadas[paredes_esquerda.index(False)].saida = (True, Direcao('esquerda'))
+        coordenadas[paredes_esquerda.index(False)].saida = [True, Direcao('esquerda')]
         for i, coordenadas in enumerate(coordenadas):
             coordenadas.x = 1
 
@@ -99,7 +99,7 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
     if [coordenada.saida[0] for coordenada in coordenadas].count(True) == 0:
 
         if paredes_direita.count(False) == 1:
-            coordenadas[len(coordenadas) - paredes_esquerda.index(False) - 1].saida = (True, Direcao('direita'))
+            coordenadas[len(coordenadas) - paredes_esquerda.index(False) - 1].saida = [True, Direcao('direita')]
 
 
 

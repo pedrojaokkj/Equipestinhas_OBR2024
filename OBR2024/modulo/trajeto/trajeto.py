@@ -21,10 +21,12 @@ def trajeto():
     robo.garra.run_time(100, 1000)
     while True:
 
-        while linhaVermelha() == False and entradaDaSala() == False:
+        while True:
 
-
-            if robo.ultrassonicoFrente.distance() < 45:
+            if linhaVermelha() == False and entradaDaSala() == False:
+                robo.bz.stop()
+                break
+            elif robo.ultrassonicoFrente.distance() < 45:
                 obstaculo()
             else:
                 segueLinha()

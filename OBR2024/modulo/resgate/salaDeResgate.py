@@ -19,6 +19,8 @@ def resgate():
 
     sala.encontrarAreas()
 
+    sala.sair()
+
     
     robo.wait(5000)
 

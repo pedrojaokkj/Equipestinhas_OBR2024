@@ -8,6 +8,7 @@ from ...Mapa.mapa import Mapa
 from ...Direcao.direcao import Direcao
 
 from .enviarRobo import calcularDistancia, executarInstrucoes
+from ..funcoesConstrutoras.verificarLado import verificarLado 
 
 
 
@@ -45,6 +46,8 @@ def explorar(self):
 
         else:
             distancias = []
+            lados = {'frente' : Direcao('direita') , 'esquerda' : Direcao('frente'), 'tras' : Direcao('direita') , 'direita' : Direcao("frente")}
+
             for coordenada  in inexplorados:
                 if coordenada.x == 0:
                     direcao = Direcao('esquerda')
@@ -61,11 +64,18 @@ def explorar(self):
 
             executarInstrucoes(distancias[0])
             parede = self._robo.checarParedeouArea()
+            paredelado = verificarLado()
 
             if parede == False:
                 coordenadaAtual = self._robo.coordenadaAtual 
                 self._mapa.coordenadas[coordenadaAtual.x-1][coordenadaAtual.y-1].saida = (True, self._robo.direcaoAtual)
                 self._saida = [coordenadaAtual,  self._robo.direcaoAtual]
+
+            elif paredelado == False:
+                coordenadaAtual = self._robo.coordenadaAtual 
+                self._mapa.coordenadas[coordenadaAtual.x-1][coordenadaAtual.y-1].saida = (True, lados[self._robo.direcaoAtual])
+                self._saida = [coordenadaAtual,  self._robo.direcaoAtual]
+
 
 
 

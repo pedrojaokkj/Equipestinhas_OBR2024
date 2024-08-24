@@ -12,11 +12,14 @@ from modulo.resgate.classes.Sala.metodos.andar_cordenada import andar_cordenada
 from modulo.resgate.classes.robo.metodos.checarParedeouArea import checarParedeouArea
 from modulo.resgate.classes.robo.metodos.capturar import captura
 from modulo.resgate.movimentos.depositar import depositar
+from modulo.trajeto.checagens.entradaSala import entradaDaSala
 
 
 def teste():
+    print(entradaDaSala())
+    print(confirmaCor())
     
-    captura()
+    # print(entradaDaSala)
 
 
 
