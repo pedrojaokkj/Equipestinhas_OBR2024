@@ -9,7 +9,7 @@ def captura():
     bz = robo.bz
     bz.stop()
 
-    robo.mecanismoDeposito.run_time(-1000,1000)
+    robo.mecanismoDeposito.run_time(-1000, 500)
     robo.garra.run_time(-400, 2000)
     bz.straight(-40)
     bz.straight(40)

@@ -11,12 +11,26 @@ from .checagens.linhaVermelha import linhaVermelha
 
 from .segueLinha import segueLinha
 from .perigos.obstaculo import obstaculo
+from .checagens.alinhar import alinhar
 
 
 
 
 #Função do Trajeto Principal
 def trajeto():
+    while True:
+        botoes = len(robo.ev3.buttons.pressed())
+        if botoes != 0:
+            if botoes == 1:
+                break
+            else:
+                robo.bz.turn(-250)
+                while robo.sensorCorDireita.color() == robo.Color.BLACK or robo.bz.distance() > 365:
+                    robo.bz.drive(0, 100)
+
+                alinhar()
+                break
+
     robo.ev3.light.off()
     robo.mecanismoDeposito.run_time(-100, 1000)
     robo.garra.run_time(100, 1000)
