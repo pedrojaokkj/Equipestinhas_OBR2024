@@ -16,7 +16,7 @@ from modulo.resgate.movimentos.depositar import depositar
 
 def teste():
     
-    print(checarParedeouArea())
+    captura()
 
 
 

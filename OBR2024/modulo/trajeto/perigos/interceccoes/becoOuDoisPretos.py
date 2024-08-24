@@ -63,9 +63,9 @@ def becoOuDoisPretos():
             doisPretos()
         elif cores[:2] == (robo.Color.GREEN, robo.Color.GREEN):
             becoSemSaida()
-        elif cores[0] == robo.Color.GREEN and percentualE[colorsE.index(robo.Color.GREEN) > 30]:
+        elif cores[0] == robo.Color.GREEN and percentualE[colorsE.index(robo.Color.GREEN)]> 30:
             becoSemSaida()
-        elif cores[1] == robo.Color.GREEN and percentualD[colorsD.index(robo.Color.GREEN) > 30]:
+        elif cores[1] == robo.Color.GREEN and percentualD[colorsD.index(robo.Color.GREEN)]> 30:
             becoSemSaida()
         elif cores[0] == robo.Color.GREEN and robo.sensorCorDireita.reflection() > 30:
             verde(robo.sensorCorEsquerda)
