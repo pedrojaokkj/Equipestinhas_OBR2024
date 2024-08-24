@@ -10,16 +10,9 @@ def captura():
     bz.stop()
 
     robo.mecanismoDeposito.run_time(-1000,1000)
-    robo.garra.run_time(-1000,2000)
-    bz.straight(40)
+    robo.garra.run_time(-400, 2000)
     bz.straight(-40)
     bz.straight(40)
-    bz.straight(-40)
-    robo.garra.run_time(800,500)
-    robo.garra.run_time(-1000,500)
-    
-    robo.garra.run_time(100,1000)
-    robo.garra.run_time(350,2000)
-    robo.garra.run_angle(-1000,65)
+
     robo.garra.run_time(1000,2000)
 

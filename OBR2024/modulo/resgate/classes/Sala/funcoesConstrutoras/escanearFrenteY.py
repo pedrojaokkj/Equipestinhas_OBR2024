@@ -35,14 +35,14 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
     #Vai até o final do eixo X da entrada atualizando os valores
     while True:
 
-        if len(coordenadas) == 4:
-            mapa.adcionarY()
-            break
 
 
         proximoy = andarEscaneandoY(robot, y_atual)
 
         if proximoy == None:
+            break
+
+        if len(coordenadas) == 3:
             break
 
 
@@ -81,8 +81,7 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
 
     print('Voltando')
     robot.virarAte(Direcao('tras'))
-    if coordenadas[len(coordenadas)-1].comArea == False and coordenadas[len(coordenadas)-1].saida == [False, None] or coordenadas[len(coordenadas)-1].saida[1].valor != 'frente' :
-        robot.ajutarnaParede()
+
         
     paredes_direita = []
     paredes_direita.append(verificarLado())
@@ -96,10 +95,6 @@ def escanearFrenteY(robot : Robo, mapa: Mapa):
 
     print('y=2')
     
-    if [coordenada.saida[0] for coordenada in coordenadas].count(True) == 0:
-
-        if paredes_direita.count(False) == 1:
-            coordenadas[len(coordenadas) - paredes_esquerda.index(False) - 1].saida = [True, Direcao('direita')]
 
 
 

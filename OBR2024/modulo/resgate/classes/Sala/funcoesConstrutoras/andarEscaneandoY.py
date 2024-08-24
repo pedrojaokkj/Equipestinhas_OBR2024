@@ -41,12 +41,13 @@ def andarEscaneandoY(robot : Robo, y):
 
 
 
-        elif y == 2 and len(leituras) > 25  or robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
+        elif y == 2 and len(leituras) > 25 :
             
             if viuArea == False:
-                robo.bz.straight(25)
+                robo.bz.straight(75)
                 print('Checando area')
                 area = robot.checarParedeouArea()
+                viuArea = True
                 if area == True:
                     robo.bz.straight(-robo.bz.distance())
                 else:
@@ -61,42 +62,6 @@ def andarEscaneandoY(robot : Robo, y):
 
             
 
-        elif y == 3:
-
-
-            if parede == None:
-                print('checar parede')
-                parede = robot.checarParedeouArea()
-
-
-            if parede == True:
-                robo.bz.straight(-robo.bz.distance())
-                ultima = True
-
-            elif len(leituras) > 25:
-
-                if robo.sensorCorDireita.reflection() < 15:
-                    saida = (True, Direcao('frente'))
-                    robo.bz.straight(-robo.bz.distance())
-                    ultima = True
-
-                elif variavel:
-
-                    area = robot.checarParedeouArea()
-                    print('Checando area')
-                    if area == True:
-                        robo.bz.straight(-robo.bz.distance())
-                    else:
-                        leituras = []
-
-                elif robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
-                    print("capturar")
-                    robo.bz.straight(distancia/2)
-                    robot.capturar()
-                    robo.bz.stop()
-                    robo.bz.straight(distancia - robo.bz.distance())                    
-        
-        
         if area == True or ultima == True :
             break
                 

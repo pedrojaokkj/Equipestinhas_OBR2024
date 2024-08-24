@@ -18,8 +18,8 @@ def verificarLado() -> bool:
 
     robo.bz.reset()
     #vai pra frente armazenando as leituras
-    while robo.bz.distance() < 30:
-        robo.bz.drive(20,0)
+    while robo.bz.distance() < 15:
+        robo.bz.drive(40,0)
         leituras.append(robo.ultrassonicoLado.distance())
         robo.wait(1)
 
@@ -31,7 +31,7 @@ def verificarLado() -> bool:
 
     #volta armazenando as leituras
     while robo.bz.distance() > -distancia:
-        robo.bz.drive(-20,0)
+        robo.bz.drive(-40,0)
         leituras.append(robo.ultrassonicoLado.distance())
         robo.wait(1)
 

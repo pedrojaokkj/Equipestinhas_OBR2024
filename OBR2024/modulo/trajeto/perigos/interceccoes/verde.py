@@ -21,6 +21,7 @@ def verde(sensor:robo.ColorSensor):
         motor2 = robo.motorEsquerdo 
         sensor2 = robo.sensorCorEsquerda
     else:
+        robo.ev3.light.on(robo.Color.RED)
         lado = -1
         motor = robo.motorEsquerdo
         motor2 = robo.motorDireito
@@ -41,4 +42,5 @@ def verde(sensor:robo.ColorSensor):
 
     alinhar()
 
+    robo.ev3.light.off()
     

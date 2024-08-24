@@ -24,15 +24,29 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
     saida = [Coordenada(x = 0, y=0), Direcao(None)]
     
     print("Alinhando...")
-    robo.bz.straight(-65)
+    robo.bz.straight(-35)
+
     alinhar()
+    dir = False
+    esq = False
+    while True:
+        robo.motorDireito.run(40)
+        robo.motorEsquerdo.run(40)
+        if esq == True and dir == True:
+            break
+        if robo.sensorCorDireita.reflection() < 60:
+            robo.motorDireito.stop()
+            dir = True
+        elif robo.sensorCorEsquerda.reflection() < 60: 
+            robo.motorEsquerdo.stop()
+            esq = True
 
 
     print("Entrando na sala...")
     print('Indo para y:1')
     robo.bz.straight(100)
     robot.capturar()
-    robo.bz.straight(105)
+    robo.bz.straight(100)
     
 
     coordenadas_y_entrada, mapa = escanearFrenteY(robot, mapa)

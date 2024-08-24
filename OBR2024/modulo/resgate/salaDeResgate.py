@@ -11,6 +11,9 @@ from .classes.Direcao.direcao import Direcao
 
 # Execução do Resgate
 def resgate():
+
+
+    print(robo.bz.distance())
     robot = Robo()
 
     print("Criando Instância de Sala...")

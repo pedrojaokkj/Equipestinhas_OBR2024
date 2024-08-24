@@ -16,10 +16,7 @@ from modulo.trajeto.checagens.entradaSala import entradaDaSala
 
 
 def teste():
-    print(entradaDaSala())
-    print(confirmaCor())
-    
-    # print(entradaDaSala)
+    print(captura())
 
 
 

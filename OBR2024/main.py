@@ -9,7 +9,7 @@ from modulo.robo import robo
 
 # Chamada da Função Principal
 if __name__ == "__main__":
-   trajeto()
+  trajeto()
 
 
 

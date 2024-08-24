@@ -17,6 +17,7 @@ from .perigos.obstaculo import obstaculo
 
 #Função do Trajeto Principal
 def trajeto():
+    robo.ev3.light.off()
     robo.mecanismoDeposito.run_time(-100, 1000)
     robo.garra.run_time(100, 1000)
     final = linhaVermelha()
@@ -34,8 +35,11 @@ def trajeto():
                 segueLinha()
 
 
-        if sala == True:        
-            resgate()
+        if sala == True:
+            robo.bz.straight(-6)
+            sala = entradaDaSala()
+            if sala == True:
+                resgate()
 
         elif final == True:
             print("Linha Vermelha")

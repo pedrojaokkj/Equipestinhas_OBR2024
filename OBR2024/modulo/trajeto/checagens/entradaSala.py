@@ -20,16 +20,35 @@ def entradaDaSala():
     '''
 
     retorno = False
-    if robo.ultrassonicoFrente.distance() > 850 or robo.sensorCorDireita.color() != Color.WHITE and robo.sensorCorEsquerda.color() != Color.WHITE:
+    if robo.ultrassonicoFrente.distance() > 1200 or robo.sensorCorDireita.color() != Color.WHITE and robo.sensorCorEsquerda.color() != Color.WHITE:
         retorno = False
-    elif robo.sensorCorDireita.reflection() < 75 and robo.sensorCorEsquerda.reflection() < 75 and robo.sensorCorDireita.color() == Color.WHITE and robo.sensorCorEsquerda.color() == Color.WHITE:
+    elif robo.sensorCorDireita.reflection() < 55 and robo.sensorCorEsquerda.reflection() < 55 and robo.sensorCorDireita.color() == Color.WHITE and robo.sensorCorEsquerda.color() == Color.WHITE:
+        robo.bz.reset()
         cores = confirmaCor()
         
         vezesE, colorsE, percentualE = zip(*cores[2])
-        vezesD, colorsD, percentualD = zip(*cores[3])  
+        vezesD, colorsD, percentualD = zip(*cores[3])
         if cores[0] == Color.WHITE and cores[1] == Color.WHITE:
-            if percentualE[colorsE.index(robo.Color.WHITE)]> 99 and percentualD[colorsD.index(robo.Color.WHITE)]> 99:
-                retorno = True
+            print('BRanco BRanco')
+            if percentualE[colorsE.index(robo.Color.WHITE)] >= 98 and percentualD[colorsD.index(robo.Color.WHITE)] >= 98:
+                print('Branco 100')
+                print(robo.bz.distance())
+                robo.bz.reset()
+                while True:
+                    if robo.sensorCorEsquerda.color() == Color.BLACK or robo.bz.angle() > 20: 
+                        robo.bz.stop()
+                        break    
+                    robo.bz.drive(0,40)
+
+                robo.bz.turn(-robo.bz.angle())
+                preto = robo.sensorCorEsquerda.color() == Color.BLACK
+                if preto == False:
+                    retorno = True
+                    print(robo.bz.distance())
+                    robo.bz.reset()
+
+                robo.bz.turn(-robo.bz.angle())
+    
         print("Sala de resgate é {}".format(retorno))
 
     return retorno
