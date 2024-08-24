@@ -19,11 +19,13 @@ from .perigos.obstaculo import obstaculo
 def trajeto():
     robo.mecanismoDeposito.run_time(-100, 1000)
     robo.garra.run_time(100, 1000)
+    final = linhaVermelha()
     while True:
 
         while True:
-
-            if linhaVermelha() == False and entradaDaSala() == False:
+            sala = entradaDaSala() 
+            final = linhaVermelha()
+            if final == True or sala == True:
                 robo.bz.stop()
                 break
             elif robo.ultrassonicoFrente.distance() < 45:
@@ -32,10 +34,10 @@ def trajeto():
                 segueLinha()
 
 
-        if entradaDaSala() == True:        
+        if sala == True:        
             resgate()
 
-        elif linhaVermelha():
+        elif final == True:
             print("Linha Vermelha")
             break
     

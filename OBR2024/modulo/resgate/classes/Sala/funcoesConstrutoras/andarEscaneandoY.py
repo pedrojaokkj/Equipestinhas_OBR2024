@@ -15,6 +15,7 @@ def andarEscaneandoY(robot : Robo, y):
     distancia = 280
     leituras = []
     saida = (False, Direcao(None))
+    viuArea = False
     area = False
     ultima = False
     parede = None
@@ -40,9 +41,10 @@ def andarEscaneandoY(robot : Robo, y):
 
 
 
-        elif y == 2 and len(leituras) > 25:
+        elif y == 2 and len(leituras) > 25  or robo.ultrassonicoFrente.distance() < 380 - robo.bz.distance():
             
-            if variavel:
+            if viuArea == False:
+                robo.bz.straight(25)
                 print('Checando area')
                 area = robot.checarParedeouArea()
                 if area == True:

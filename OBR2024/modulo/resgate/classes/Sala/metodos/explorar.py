@@ -2,6 +2,7 @@
 
 #Importações
 #______________________________________________________________________________________________________________________________________
+from .....robo import robo
 from ...robo.classeRobo import Robo
 from ...Coordenada.coordenada import Coordenada
 from ...Mapa.mapa import Mapa
@@ -76,21 +77,6 @@ def explorar(self):
                 self._mapa.coordenadas[coordenadaAtual.x-1][coordenadaAtual.y-1].saida = (True, lados[self._robo.direcaoAtual])
                 self._saida = [coordenadaAtual,  self._robo.direcaoAtual]
 
-
-
-
-
-
-
-
-            
-
-        
-        
-
-
-
-        
-
-    
-    
+    if self._saida[1] != None:
+        robo.bz.stop()
+        robo.wait(10000000000000000000)

@@ -24,7 +24,7 @@ def iniciarMapa(self, robot : Robo, mapa : Mapa):
     saida = [Coordenada(x = 0, y=0), Direcao(None)]
     
     print("Alinhando...")
-    robo.bz.straight(-50)
+    robo.bz.straight(-65)
     alinhar()
 
 
