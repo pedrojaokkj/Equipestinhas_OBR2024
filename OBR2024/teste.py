@@ -13,10 +13,11 @@ from modulo.resgate.classes.robo.metodos.checarParedeouArea import checarParedeo
 from modulo.resgate.classes.robo.metodos.capturar import captura
 from modulo.resgate.movimentos.depositar import depositar
 from modulo.trajeto.checagens.entradaSala import entradaDaSala
+from modulo.trajeto.checagens.alinhar import alinhar
 
 
 def teste():
-    print(captura())
+    print(alinhar())
 
 
 

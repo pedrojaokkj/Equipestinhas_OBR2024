@@ -12,7 +12,8 @@ def alinhar():
 
 
     while robo.sensorCorEsquerda.reflection() > 65:
-        robo.bz.drive(0, 40)
+        print('primeira curva')
+        robo.bz.drive(0, 60)
         if robo.bz.angle() > 18:
             break
 
@@ -25,7 +26,8 @@ def alinhar():
 
 
     while robo.sensorCorDireita.reflection() > 65:
-        robo.bz.drive(0, -40)
+        print('segunda curva')
+        robo.bz.drive(0, -60)
         if robo.bz.angle() < -18:
             break
 
