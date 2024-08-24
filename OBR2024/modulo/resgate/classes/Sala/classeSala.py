@@ -71,6 +71,7 @@ class SalaDeResgate:
             for coordenada in linha:
                 if coordenada.explorada == False:
                     inexplorados.append(coordenada)
+                    
 
 
         
@@ -78,24 +79,7 @@ class SalaDeResgate:
 
     def sair(self):
         
-        mapa = self._mapa
-        saida = [[coordenada for coordenada in linha if coordenada.saida[0] == True] for linha in mapa.coordenadas]
-
-        if len(saida) == 1:
-            saida = saida[0][0]
-
-        else:
-            self.explorar()
-            mapa = self._mapa
-            saida = [[coordenada for coordenada in linha if coordenada.saida[0] == True] for linha in mapa.coordenadas]
-
-            if len(saida) == 1:
-                saida = saida[0][0]
-            else:
-                return
-
-
-        self.enviarRobo(saida, saida.saida[1])
+        sair(self)
                 
 
 
