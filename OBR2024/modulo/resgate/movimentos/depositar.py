@@ -7,7 +7,7 @@ from ...robo import robo
 def depositar(AreaTrue = False):
 
     ''' Args(bool) : Com base no resultado de AreaTrue, 
-    ele faz os movimentos para depositar as vítimas'''
+    ele faz os movimentos para depositar as vítimas, KAUÊ ESTEVE AQUI AAAAAAAH'''
 
     bz = robo.bz
 
